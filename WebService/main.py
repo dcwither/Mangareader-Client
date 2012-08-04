@@ -28,20 +28,19 @@ class MainHandler(webapp2.RequestHandler):
         mangareader = urllib.urlopen("http://www.mangareader.net")
         HTML = mangareader.read()
         soup = BeautifulSoup.BeautifulSoup(HTML)
-        dict = {}
+        array = []
         for chapter in soup.findAll(attrs={"class":"chapter"}):
 
             link = str(chapter['href'])
             name = str(chapter.contents[0].string)
-            dict[name] = link
+            dict = {"name":name, "link":link}
+            array.append(dict)
 
-        json_text = json.dumps(dict)
+        json_text = json.dumps(array)
         self.response.out.write(json_text)
 
-regex = '/([a-zA-Z0-9_-]+)/([0-9]+)'
-regex = '/([0-9_-]+)?(?:/)?' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:.html)?'
 app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/([a-zA-Z0-9_-]+)/([0-9]+)', ChapterHandler.ChapterHandler),
-                               ('/([0-9_-]+)?(?:/)?' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:.html)?', ChapterHandler.ChapterHandler),
+                               ('/([0-9_-]+)?(?:/)?' + '(:[a-zA-Z0-9_-]+/)' + '(:[a-zA-Z0-9_-]+/)' + '(?:.html)?', ChapterHandler.ChapterHandler),
                                ('/([0-9]+)?(?:/)?' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:.html)?', SeriesHandler.SeriesHandler)],
                               debug=True)
