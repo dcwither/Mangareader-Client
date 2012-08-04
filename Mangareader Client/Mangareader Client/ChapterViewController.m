@@ -37,13 +37,20 @@
 {
     
     [super loadView];
+    self.title = self.chapter.title;
     self.pageIndex = 0;
-    self.loadedPages = MAX(0, self.chapter.pageCount);
+    NSInteger loadedPages = 0;
+    for (MRPage *page in self.chapter.pages) {
+        if (page.image != nil) {
+            loadedPages ++;
+        }
+    }
+    
+    self.loadedPages = self.loadedPages = loadedPages;
     self.pageView = [[UIImageView alloc] initWithImage:nil];
     [self.view addSubview:self.pageView];
     [SeriesManager sharedManager].pageViewer = self;
-    
-    if (self.chapter.pageCount != [self.chapter.pages count] || self.chapter.pageCount < 0) {
+    if (self.chapter.pageCount != self.loadedPages || self.chapter.pageCount < 0) {
         [[SeriesManager sharedManager] updatePagesForChapter:self.chapter];
         
     }
@@ -68,7 +75,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if ([self.chapter.pages count] >= 1) {
+    if (self.loadedPages >= 1) {
         [self loadPage:1];
     }
 }
@@ -112,15 +119,20 @@
 {
     NSSet *selected = [self.chapter.pages filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"index == %d", pageIndex]];
     for (MRPage *page in selected) {
-        self.pageIndex = pageIndex;
-        UIImage *image = [UIImage imageWithData:page.image];
-        self.pageView.image = image;
-        self.pageView.frame = [self calculateFrameOfImageToFitScreen:image];
+        if (page.image) {
+            self.pageIndex = pageIndex;
+            UIImage *image = [UIImage imageWithData:page.image];
+            self.pageView.image = image;
+            self.pageView.frame = [self calculateFrameOfImageToFitScreen:image];
+        }
     }
 }
 
 - (void) pageRecieved:(MRPage *)page
 {
+    if (![self.chapter.pages containsObject:page]) {
+        return;
+    }
     
     if (self.loadedPages == 0) {
         [self loadPage:1];
@@ -139,6 +151,7 @@
     if (widthFactor > 1 && heightFactor > 1) {
         Frame.size.height = image.size.height;
         Frame.size.width = image.size.width;
+        
     } else {
         CGFloat Height = MIN(self.view.frame.size.height, image.size.height);
         CGFloat Width = MIN(self.view.frame.size.width, image.size.width);

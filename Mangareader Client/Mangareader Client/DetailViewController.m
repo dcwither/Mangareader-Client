@@ -45,7 +45,7 @@
 
     if ([[self.detailItem class] isSubclassOfClass:[MRSeries class]]) {
         self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"name"] description];
-        
+        self.title = [[self.detailItem valueForKey:@"name"] description];
     } else if ([[self.detailItem class] isSubclassOfClass:[MRChapter class]]) {
         self.fetchedResultsController = nil;
         NSFetchedResultsController *controller = self.fetchedResultsController;

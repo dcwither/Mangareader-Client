@@ -21,11 +21,17 @@ import urllib
 import BeautifulSoup
 import SeriesHandler
 import ChapterHandler
+import JsonDump
 class MainHandler(webapp2.RequestHandler):
 
     def get(self):
         self.response.headers['Content-Type'] = 'application/json; charset=UTF-8'
         mangareader = urllib.urlopen("http://www.mangareader.net")
+
+        saved = JsonDump.JsonDump.all().filter("url = ", "http://www.mangareader.net").get()
+        if saved:
+            self.response.out.write(saved.content)
+            return
         HTML = mangareader.read()
         soup = BeautifulSoup.BeautifulSoup(HTML)
         array = []
@@ -37,10 +43,12 @@ class MainHandler(webapp2.RequestHandler):
             array.append(dict)
 
         json_text = json.dumps(array)
+        saved = JsonDump.JsonDump(url="http://www.mangareader.net", content=json_text)
+        saved.put()
         self.response.out.write(json_text)
 
 app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/([a-zA-Z0-9_-]+)/([0-9]+)', ChapterHandler.ChapterHandler),
-                               ('/([0-9_-]+)?(?:/)?' + '(:[a-zA-Z0-9_-]+/)' + '(:[a-zA-Z0-9_-]+/)' + '(?:.html)?', ChapterHandler.ChapterHandler),
+                               ('/([0-9_-]+)/' + '([a-zA-Z0-9_-]+/)' + '([a-zA-Z0-9_-]+(?:/)?)' + '(?:.html)?', ChapterHandler.ChapterHandler),
                                ('/([0-9]+)?(?:/)?' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:.html)?', SeriesHandler.SeriesHandler)],
                               debug=True)

@@ -112,7 +112,16 @@ static SeriesManager *instance = NULL;
 - (void)updateChaptersForSeries: (MRSeries *) series
 {
     NSManagedObjectContext *context = APP_DELEGATE().managedObjectContext;
-    [context performBlock:^{
+    if (![self.chapterQueue isSuspended]) {
+        
+        //
+        // Won't cancel the current running operation. Could be improved to stop at safe points.
+        //
+        
+        [self.chapterQueue cancelAllOperations];
+    }
+    
+    [self.chapterQueue addOperationWithBlock:^{
         NSURL *seriesURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,series.url]];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:seriesURL
                                                                   cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -129,37 +138,40 @@ static SeriesManager *instance = NULL;
             NSLog(@"Error: %@ response failed on url: %@", requestError, seriesURL);
         }
         
-        NSError *error;
+        NSError *jsonError;
         NSArray *jsonResponse = [NSJSONSerialization JSONObjectWithData:response
                                                                 options:NSJSONReadingMutableContainers
-                                                                  error:&error];
+                                                                  error:&jsonError];
         
-        if (error) {
-            NSLog(@"Error: %@ response failed on json: %@", error, seriesURL);
+        if (jsonError) {
+            NSLog(@"Error: %@ response failed on json: %@", jsonError, seriesURL);
         }
         
-        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MRChapter"];
-        NSInteger index = 0;
-        for (NSDictionary *chapter in jsonResponse) {
-            index++;
-            NSString *name = [chapter objectForKey:@"name"];
-            NSString *url = [chapter objectForKey:@"link"];
-            fetchRequest.predicate = [NSPredicate predicateWithFormat:@"title == %@", name];
-            NSInteger count = [context countForFetchRequest:fetchRequest error:&error];
-            if (count == 0) {
-                MRChapter *chapterInstance = [MRChapter insertInManagedObjectContext:context];
-                chapterInstance.url = url;
-                chapterInstance.title = name;
-                chapterInstance.series = series;
-                chapterInstance.index = index;
-                series.chapters = [series.chapters setByAddingObject:chapterInstance];
+        [context performBlock:^{
+            NSError *error;
+            NSInteger index = 0;
+            for (NSDictionary *chapter in jsonResponse) {
+                index++;
+                NSString *name = [chapter objectForKey:@"name"];
+                NSString *url = [chapter objectForKey:@"link"];
+                
+                NSSet *filtered = [series.chapters filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"title == %@", name]];
+                if ([filtered count] == 0) {
+                    MRChapter *chapterInstance = [MRChapter insertInManagedObjectContext:context];
+                    chapterInstance.url = url;
+                    chapterInstance.title = name;
+                    chapterInstance.series = series;
+                    chapterInstance.index = index;
+                    series.chapters = [series.chapters setByAddingObject:chapterInstance];
+                }
             }
-        }
+            
+            [context save:&error];
+            if (error) {
+                NSLog(@"Error saving series: %@", error);
+            }
+        }];
         
-        [context save:&error];
-        if (error) {
-            NSLog(@"Error saving series: %@", error);
-        }
     }];
     
 }
@@ -173,7 +185,16 @@ static SeriesManager *instance = NULL;
     
     NSManagedObjectContext *context = APP_DELEGATE().managedObjectContext;
     
-    [context performBlock:^{
+    if (![self.pageQueue isSuspended]) {
+        
+        //
+        // Won't cancel the current running operation. Could be improved to stop at safe points.
+        //
+        
+        [self.pageQueue cancelAllOperations];
+    }
+    
+    [self.pageQueue addOperationWithBlock:^{
         NSURL *chapterURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,chapter.url]];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:chapterURL
                                                                   cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -190,50 +211,58 @@ static SeriesManager *instance = NULL;
             NSLog(@"Error: %@ response failed on url: %@", requestError, chapterURL);
         }
         
-        NSError *error;
+        NSError *jsonError;
         NSArray *jsonResponse = [NSJSONSerialization JSONObjectWithData:response
                                                                 options:NSJSONReadingMutableContainers
-                                                                  error:&error];
+                                                                  error:&jsonError];
         
-        if (error) {
-            NSLog(@"Error: %@ response failed on json: %@", error, chapterURL);
+        if (jsonError) {
+            NSLog(@"Error: %@ response failed on json: %@", jsonError, chapterURL);
         }
         
-        chapter.pageCount = [jsonResponse count];
-        for (NSDictionary *page in jsonResponse) {
-            NSInteger index = [[page objectForKey:@"index"] intValue];
-            NSString *url = [page objectForKey:@"image_url"];
-            NSSet *filtered = [chapter.pages filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"(index == %d)", index]];
-            MRPage *pageInstance = nil;
-            if ([filtered count] == 0) {
-                pageInstance = [MRPage insertInManagedObjectContext:context];
-                pageInstance.url = url;
-                pageInstance.index = index;
-                chapter.pages = [chapter.pages setByAddingObject:pageInstance];
-            } else {
-                assert([filtered count] == 1);
-                pageInstance = [[filtered objectEnumerator] nextObject];
-            }
+        [context performBlock:^{
+            NSError *error;
             
-            if (pageInstance.image == nil) {
-                [context performBlock:^{
-                    [self fetchImageForPage:pageInstance];
+            chapter.pageCount = [jsonResponse count];
+            
+            for (NSDictionary *page in jsonResponse) {
+                NSInteger index = [[page objectForKey:@"index"] intValue];
+                NSString *url = [page objectForKey:@"image_url"];
+                NSSet *filtered = [chapter.pages filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"(index == %d)", index]];
+                MRPage *pageInstance = nil;
+                if ([filtered count] == 0) {
+                    
+                    pageInstance = [MRPage insertInManagedObjectContext:context];
+                    pageInstance.url = url;
+                    pageInstance.index = index;
+                    chapter.pages = [chapter.pages setByAddingObject:pageInstance];
+                    
+                } else {
+                    assert([filtered count] == 1);
+                    pageInstance = [[filtered objectEnumerator] nextObject];
+                }
+                
+                if (pageInstance.image == nil) {
+                    [context performBlock:^{
+                        [self fetchImageForPage:pageInstance];
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                            [self.pageViewer pageRecieved:pageInstance];
+                        }];
+                    }];
+                } else {
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                         [self.pageViewer pageRecieved:pageInstance];
                     }];
-                }];
-            } else {
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                    [self.pageViewer pageRecieved:pageInstance];
-                }];
+                }
             }
-        }
-        
-        [context save:&error];
-        if (error) {
             
-            NSLog(@"Error saving chapter: %@", error);
-        }
+            [context save:&error];
+            if (error) {
+                
+                NSLog(@"Error saving chapter: %@", error);
+            }
+        }];
+        
     }];
 }
 
