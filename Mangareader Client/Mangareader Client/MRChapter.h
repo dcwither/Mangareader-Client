@@ -19,4 +19,6 @@
 @property (nonatomic, strong) NSSet *pages;
 @property (nonatomic, strong) MRSeries *series;
 
++ (MRChapter *)insertInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+
 @end

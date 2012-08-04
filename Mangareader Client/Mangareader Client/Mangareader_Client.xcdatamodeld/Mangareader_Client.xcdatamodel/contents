@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12A269" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="MRChapter" syncable="YES">
+    <entity name="MRChapter" representedClassName="MRChapter" syncable="YES">
         <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="pages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MRPage" inverseName="chapter" inverseEntity="MRPage" syncable="YES"/>
         <relationship name="series" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MRSeries" inverseName="chapters" inverseEntity="MRSeries" syncable="YES"/>
     </entity>
-    <entity name="MRImage" syncable="YES">
+    <entity name="MRImage" representedClassName="MRImage" syncable="YES">
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="series" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MRSeries" inverseName="image" inverseEntity="MRSeries" syncable="YES"/>
     </entity>
-    <entity name="MRPage" syncable="YES">
+    <entity name="MRPage" representedClassName="MRPage" syncable="YES">
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>

@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "SeriesManager.h"
+#import "ChapterListViewController.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -27,7 +28,7 @@
 {
     
     [super loadView];
-    [[[SeriesManager alloc] init] updatAvailableSeries];
+    [[SeriesManager sharedManager] updatAvailableSeries];
 }
 
 - (void)viewDidLoad
@@ -169,6 +170,14 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"name"] description];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ChapterListViewController *vc = (ChapterListViewController *) segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:((UITableViewCell *) sender)];
+    vc.series = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    vc.managedObjectContext = self.managedObjectContext;
 }
 
 @end

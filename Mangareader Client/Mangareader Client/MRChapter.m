@@ -16,4 +16,11 @@
 @dynamic pages;
 @dynamic series;
 
++ (MRChapter *)insertInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    
+    return (MRChapter *)[NSEntityDescription insertNewObjectForEntityForName:@"MRChapter"
+                                                     inManagedObjectContext:managedObjectContext];
+}
+
 @end

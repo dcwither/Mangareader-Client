@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "MRSeries.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -35,7 +36,7 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
+    if ([[self.detailItem class] isSubclassOfClass:[MRSeries class]]) {
         self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"name"] description];
     }
 }

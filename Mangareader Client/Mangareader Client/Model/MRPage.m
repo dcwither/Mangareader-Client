@@ -15,4 +15,12 @@
 @dynamic url;
 @dynamic chapter;
 
+
++ (MRPage *)insertInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    
+    return (MRPage *)[NSEntityDescription insertNewObjectForEntityForName:@"MRPage"
+                                                      inManagedObjectContext:managedObjectContext];
+}
+
 @end

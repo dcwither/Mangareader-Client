@@ -7,19 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MRSeries.h"
+#import "MRChapter.h"
 
 @class SeriesManager;
 
-@protocol SeriesManagerDelegate <NSObject>
-
-- (void)seriesMangerDidUpdateAvailableSeries: (SeriesManager *) seriesManager;
-
-@end
-
 @interface SeriesManager : NSObject
 
-@property (nonatomic, weak) id<SeriesManagerDelegate> delegate;
-
++ (SeriesManager *) sharedManager;
 - (void) updatAvailableSeries;
+- (void) updateChaptersForSeries: (MRSeries *) series;
     
 @end
