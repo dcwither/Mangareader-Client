@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031E9CEF15CD6AAC00C53540 /* ChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031E9CEE15CD6AAC00C53540 /* ChapterViewController.m */; };
 		034E349915CCCE1C0042A116 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034E349815CCCE1C0042A116 /* UIKit.framework */; };
 		034E349B15CCCE1C0042A116 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034E349A15CCCE1C0042A116 /* Foundation.framework */; };
 		034E349D15CCCE1C0042A116 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034E349C15CCCE1C0042A116 /* CoreGraphics.framework */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		031E9CED15CD6AAC00C53540 /* ChapterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterViewController.h; sourceTree = "<group>"; };
+		031E9CEE15CD6AAC00C53540 /* ChapterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterViewController.m; sourceTree = "<group>"; };
 		034E349415CCCE1C0042A116 /* Mangareader Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mangareader Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		034E349815CCCE1C0042A116 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		034E349A15CCCE1C0042A116 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -134,6 +137,8 @@
 				034E34B615CCCE1C0042A116 /* DetailViewController.m */,
 				034E34D815CD2E0B0042A116 /* ChapterListViewController.h */,
 				034E34D915CD2E0B0042A116 /* ChapterListViewController.m */,
+				031E9CED15CD6AAC00C53540 /* ChapterViewController.h */,
+				031E9CEE15CD6AAC00C53540 /* ChapterViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				034E34D415CD21820042A116 /* MRPage.m in Sources */,
 				034E34D715CD21980042A116 /* MRImage.m in Sources */,
 				034E34DA15CD2E0B0042A116 /* ChapterListViewController.m in Sources */,
+				031E9CEF15CD6AAC00C53540 /* ChapterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +357,7 @@
 				034E34BC15CCCE1C0042A116 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

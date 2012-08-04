@@ -20,6 +20,60 @@
             </objects>
             <point key="canvasLocation" x="-460" y="-618"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="C42-od-9w6">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w88-Q9-Tc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="jjn-bd-fEn" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ro3-Em-e4d">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="64C-Xg-k1w" kind="relationship" relationship="rootViewController" id="ovP-oZ-kvS"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1198" y="-778"/>
+        </scene>
+        <!--Chapter View Controller-->
+        <scene sceneID="uAL-xl-Fhr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tLo-ay-Vgw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="64C-Xg-k1w" customClass="ChapterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AyT-l1-QZt">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lW6-gV-UM3" appends="YES" id="z07-qX-dog"/>
+                            <outletCollection property="gestureRecognizers" destination="IWU-Ic-hRI" appends="YES" id="XP9-wq-UnE"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="JAu-B3-Y8X">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="tIE-cm-cum">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="64C-Xg-k1w" id="1Q2-Qi-3f1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <swipeGestureRecognizer direction="right" id="lW6-gV-UM3">
+                    <connections>
+                        <action selector="swipeRight:" destination="64C-Xg-k1w" id="WPc-SE-jJp"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="IWU-Ic-hRI">
+                    <connections>
+                        <action selector="swipeLeft:" destination="64C-Xg-k1w" id="R7D-nE-sfR"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2424" y="-778"/>
+        </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="16">
             <objects>
@@ -48,7 +102,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="436" y="242"/>
+            <point key="canvasLocation" x="742" y="236"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="18">
@@ -106,12 +160,12 @@
                             <outlet property="delegate" destination="19" id="21"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="40"/>
+                    <navigationItem key="navigationItem" title="Series" id="40"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="-25" y="-618"/>
         </scene>
-        <!--Chapter List View Controller-->
+        <!--Chapter List View Controller - Chapters-->
         <scene sceneID="61l-OX-Cg0">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="97A-tU-v3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -130,6 +184,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="jjn-bd-fEn" kind="modal" identifier="SeriesToChapter" id="eg4-vw-7QA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -137,7 +194,7 @@
                             <outlet property="delegate" destination="nT2-kT-bjM" id="I1Z-yC-lyA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lWX-gd-q5z"/>
+                    <navigationItem key="navigationItem" title="Chapters" id="lWX-gd-q5z"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="436" y="-618"/>
@@ -151,13 +208,35 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="4" kind="relationship" relationship="rootViewController" id="52"/>
+                        <segue destination="4" kind="relationship" relationship="rootViewController" id="egz-3Q-iqf"/>
                     </connections>
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="-466" y="242"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ChapterListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChapterListViewController.h"/>
+        </class>
+        <class className="ChapterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChapterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="swipeLeft:"/>
+                <relationship kind="action" name="swipeRight:"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -8,13 +8,20 @@
 
 #import "DetailViewController.h"
 #import "MRSeries.h"
+#import "MRChapter.h"
+#import "AppDelegate.h"
 
 @interface DetailViewController ()
+
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+
 - (void)configureView;
+
 @end
 
 @implementation DetailViewController
+
+@synthesize fetchedResultsController = _fetchedResultsController;
 
 #pragma mark - Managing the detail item
 
@@ -38,6 +45,11 @@
 
     if ([[self.detailItem class] isSubclassOfClass:[MRSeries class]]) {
         self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"name"] description];
+        
+    } else if ([[self.detailItem class] isSubclassOfClass:[MRChapter class]]) {
+        self.fetchedResultsController = nil;
+        NSFetchedResultsController *controller = self.fetchedResultsController;
+        
     }
 }
 
@@ -74,5 +86,8 @@
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
 }
+
+#pragma mark - FetchedResultsController
+
 
 @end

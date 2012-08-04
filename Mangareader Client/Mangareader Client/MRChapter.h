@@ -13,6 +13,7 @@
 @interface MRChapter : NSManagedObject
 
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, assign) NSInteger pageCount;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *url;
 

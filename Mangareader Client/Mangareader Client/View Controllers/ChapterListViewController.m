@@ -8,6 +8,7 @@
 
 #import "ChapterListViewController.h"
 #import "SeriesManager.h"
+#import "ChapterViewController.h"
 
 @interface ChapterListViewController ()
 
@@ -50,6 +51,12 @@
     return YES;
 }
 
+- (void) dealloc
+{
+    self.fetchedResultsController.delegate = nil;
+    self.fetchedResultsController  = nil;
+}
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -84,6 +91,7 @@
 {
     NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     self.detailViewController.detailItem = object;
+    [self performSegueWithIdentifier:@"SeriesToChapter" sender:[self.tableView cellForRowAtIndexPath:indexPath]];
 }
 
 #pragma mark - Fetched results controller
@@ -120,7 +128,6 @@
     
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
-    
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
@@ -164,6 +171,17 @@
 - (NSString *) chapterKey
 {
     return [NSString stringWithFormat:@"Chapters_%@", self.series.name];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SeriesToChapter"]) {
+        ChapterViewController *vc = (ChapterViewController *) [segue.destinationViewController topViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        vc.chapter = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    }
+    
+    return;
 }
 
 @end

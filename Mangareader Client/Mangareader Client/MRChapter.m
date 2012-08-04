@@ -11,6 +11,7 @@
 @implementation MRChapter
 
 @dynamic index;
+@dynamic pageCount;
 @dynamic title;
 @dynamic url;
 @dynamic pages;
