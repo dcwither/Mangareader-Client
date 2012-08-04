@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		034E349915CCCE1C0042A116 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034E349815CCCE1C0042A116 /* UIKit.framework */; };
+		034E349B15CCCE1C0042A116 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034E349A15CCCE1C0042A116 /* Foundation.framework */; };
+		034E349D15CCCE1C0042A116 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034E349C15CCCE1C0042A116 /* CoreGraphics.framework */; };
+		034E349F15CCCE1C0042A116 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034E349E15CCCE1C0042A116 /* CoreData.framework */; };
+		034E34A515CCCE1C0042A116 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 034E34A315CCCE1C0042A116 /* InfoPlist.strings */; };
+		034E34A715CCCE1C0042A116 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34A615CCCE1C0042A116 /* main.m */; };
+		034E34AB15CCCE1C0042A116 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34AA15CCCE1C0042A116 /* AppDelegate.m */; };
+		034E34AE15CCCE1C0042A116 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034E34AC15CCCE1C0042A116 /* MainStoryboard.storyboard */; };
+		034E34B115CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 034E34AF15CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld */; };
+		034E34B415CCCE1C0042A116 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34B315CCCE1C0042A116 /* MasterViewController.m */; };
+		034E34B715CCCE1C0042A116 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34B615CCCE1C0042A116 /* DetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		034E349415CCCE1C0042A116 /* Mangareader Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mangareader Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		034E349815CCCE1C0042A116 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		034E349A15CCCE1C0042A116 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		034E349C15CCCE1C0042A116 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		034E349E15CCCE1C0042A116 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		034E34A215CCCE1C0042A116 /* Mangareader Client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mangareader Client-Info.plist"; sourceTree = "<group>"; };
+		034E34A415CCCE1C0042A116 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		034E34A615CCCE1C0042A116 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		034E34A815CCCE1C0042A116 /* Mangareader Client-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mangareader Client-Prefix.pch"; sourceTree = "<group>"; };
+		034E34A915CCCE1C0042A116 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		034E34AA15CCCE1C0042A116 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		034E34AD15CCCE1C0042A116 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		034E34B015CCCE1C0042A116 /* Mangareader_Client.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mangareader_Client.xcdatamodel; sourceTree = "<group>"; };
+		034E34B215CCCE1C0042A116 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		034E34B315CCCE1C0042A116 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		034E34B515CCCE1C0042A116 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		034E34B615CCCE1C0042A116 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		034E349115CCCE1C0042A116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				034E349915CCCE1C0042A116 /* UIKit.framework in Frameworks */,
+				034E349B15CCCE1C0042A116 /* Foundation.framework in Frameworks */,
+				034E349D15CCCE1C0042A116 /* CoreGraphics.framework in Frameworks */,
+				034E349F15CCCE1C0042A116 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034E348915CCCE1C0042A116 = {
+			isa = PBXGroup;
+			children = (
+				034E34A015CCCE1C0042A116 /* Mangareader Client */,
+				034E349715CCCE1C0042A116 /* Frameworks */,
+				034E349515CCCE1C0042A116 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		034E349515CCCE1C0042A116 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				034E349415CCCE1C0042A116 /* Mangareader Client.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		034E349715CCCE1C0042A116 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				034E349815CCCE1C0042A116 /* UIKit.framework */,
+				034E349A15CCCE1C0042A116 /* Foundation.framework */,
+				034E349C15CCCE1C0042A116 /* CoreGraphics.framework */,
+				034E349E15CCCE1C0042A116 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		034E34A015CCCE1C0042A116 /* Mangareader Client */ = {
+			isa = PBXGroup;
+			children = (
+				034E34A915CCCE1C0042A116 /* AppDelegate.h */,
+				034E34AA15CCCE1C0042A116 /* AppDelegate.m */,
+				034E34AC15CCCE1C0042A116 /* MainStoryboard.storyboard */,
+				034E34B215CCCE1C0042A116 /* MasterViewController.h */,
+				034E34B315CCCE1C0042A116 /* MasterViewController.m */,
+				034E34B515CCCE1C0042A116 /* DetailViewController.h */,
+				034E34B615CCCE1C0042A116 /* DetailViewController.m */,
+				034E34AF15CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld */,
+				034E34A115CCCE1C0042A116 /* Supporting Files */,
+			);
+			path = "Mangareader Client";
+			sourceTree = "<group>";
+		};
+		034E34A115CCCE1C0042A116 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				034E34A215CCCE1C0042A116 /* Mangareader Client-Info.plist */,
+				034E34A315CCCE1C0042A116 /* InfoPlist.strings */,
+				034E34A615CCCE1C0042A116 /* main.m */,
+				034E34A815CCCE1C0042A116 /* Mangareader Client-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		034E349315CCCE1C0042A116 /* Mangareader Client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 034E34BA15CCCE1C0042A116 /* Build configuration list for PBXNativeTarget "Mangareader Client" */;
+			buildPhases = (
+				034E349015CCCE1C0042A116 /* Sources */,
+				034E349115CCCE1C0042A116 /* Frameworks */,
+				034E349215CCCE1C0042A116 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mangareader Client";
+			productName = "Mangareader Client";
+			productReference = 034E349415CCCE1C0042A116 /* Mangareader Client.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		034E348B15CCCE1C0042A116 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = SmrtStudios;
+			};
+			buildConfigurationList = 034E348E15CCCE1C0042A116 /* Build configuration list for PBXProject "Mangareader Client" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 034E348915CCCE1C0042A116;
+			productRefGroup = 034E349515CCCE1C0042A116 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				034E349315CCCE1C0042A116 /* Mangareader Client */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		034E349215CCCE1C0042A116 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				034E34A515CCCE1C0042A116 /* InfoPlist.strings in Resources */,
+				034E34AE15CCCE1C0042A116 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		034E349015CCCE1C0042A116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				034E34A715CCCE1C0042A116 /* main.m in Sources */,
+				034E34AB15CCCE1C0042A116 /* AppDelegate.m in Sources */,
+				034E34B115CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld in Sources */,
+				034E34B415CCCE1C0042A116 /* MasterViewController.m in Sources */,
+				034E34B715CCCE1C0042A116 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		034E34A315CCCE1C0042A116 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				034E34A415CCCE1C0042A116 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		034E34AC15CCCE1C0042A116 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				034E34AD15CCCE1C0042A116 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		034E34B815CCCE1C0042A116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		034E34B915CCCE1C0042A116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		034E34BB15CCCE1C0042A116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mangareader Client/Mangareader Client-Prefix.pch";
+				INFOPLIST_FILE = "Mangareader Client/Mangareader Client-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		034E34BC15CCCE1C0042A116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mangareader Client/Mangareader Client-Prefix.pch";
+				INFOPLIST_FILE = "Mangareader Client/Mangareader Client-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		034E348E15CCCE1C0042A116 /* Build configuration list for PBXProject "Mangareader Client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034E34B815CCCE1C0042A116 /* Debug */,
+				034E34B915CCCE1C0042A116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		034E34BA15CCCE1C0042A116 /* Build configuration list for PBXNativeTarget "Mangareader Client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034E34BB15CCCE1C0042A116 /* Debug */,
+				034E34BC15CCCE1C0042A116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		034E34AF15CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				034E34B015CCCE1C0042A116 /* Mangareader_Client.xcdatamodel */,
+			);
+			currentVersion = 034E34B015CCCE1C0042A116 /* Mangareader_Client.xcdatamodel */;
+			path = Mangareader_Client.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 034E348B15CCCE1C0042A116 /* Project object */;
+}
