@@ -10,4 +10,9 @@
 
 @implementation MRPage
 
+@dynamic image;
+@dynamic index;
+@dynamic url;
+@dynamic chapter;
+
 @end

@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "MRChapter.h"
 
-@interface MRPage : NSObject
+@interface MRPage : NSManagedObject
+
+@property (nonatomic, strong) NSData *image;
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, strong) NSString *url;
+
+@property (nonatomic, strong) MRChapter *chapter;
 
 @end

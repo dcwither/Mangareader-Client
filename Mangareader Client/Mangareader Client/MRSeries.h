@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface GRSeries : NSObject
+@interface MRSeries : NSManagedObject
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSSet *chapters;
+
+@property (nonatomic, strong) NSData *image;
+
++ (MRSeries *)insertInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "MRSeries.h"
 
 @interface MRImage : NSManagedObject
+
+@property (nonatomic, strong) NSData *image;
+
+@property (nonatomic, strong) MRSeries *series;
 
 @end

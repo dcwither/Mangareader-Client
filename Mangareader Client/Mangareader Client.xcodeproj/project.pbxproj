@@ -18,6 +18,12 @@
 		034E34B115CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 034E34AF15CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld */; };
 		034E34B415CCCE1C0042A116 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34B315CCCE1C0042A116 /* MasterViewController.m */; };
 		034E34B715CCCE1C0042A116 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34B615CCCE1C0042A116 /* DetailViewController.m */; };
+		034E34C115CD13280042A116 /* SeriesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34C015CD13280042A116 /* SeriesManager.m */; };
+		034E34C815CD1DC60042A116 /* MRSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34C715CD1DC60042A116 /* MRSeries.m */; };
+		034E34CB15CD1DD80042A116 /* MRChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34CA15CD1DD80042A116 /* MRChapter.m */; };
+		034E34D415CD21820042A116 /* MRPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34D315CD21820042A116 /* MRPage.m */; };
+		034E34D715CD21980042A116 /* MRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34D615CD21980042A116 /* MRImage.m */; };
+		034E34DA15CD2E0B0042A116 /* ChapterListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E34D915CD2E0B0042A116 /* ChapterListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,18 @@
 		034E34B315CCCE1C0042A116 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		034E34B515CCCE1C0042A116 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		034E34B615CCCE1C0042A116 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		034E34BF15CD13280042A116 /* SeriesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeriesManager.h; path = Model/SeriesManager.h; sourceTree = "<group>"; };
+		034E34C015CD13280042A116 /* SeriesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeriesManager.m; path = Model/SeriesManager.m; sourceTree = "<group>"; };
+		034E34C615CD1DC60042A116 /* MRSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSeries.h; sourceTree = "<group>"; };
+		034E34C715CD1DC60042A116 /* MRSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSeries.m; sourceTree = "<group>"; };
+		034E34C915CD1DD80042A116 /* MRChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRChapter.h; sourceTree = "<group>"; };
+		034E34CA15CD1DD80042A116 /* MRChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRChapter.m; sourceTree = "<group>"; };
+		034E34D215CD21820042A116 /* MRPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MRPage.h; path = Model/MRPage.h; sourceTree = "<group>"; };
+		034E34D315CD21820042A116 /* MRPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MRPage.m; path = Model/MRPage.m; sourceTree = "<group>"; };
+		034E34D515CD21980042A116 /* MRImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRImage.h; sourceTree = "<group>"; };
+		034E34D615CD21980042A116 /* MRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRImage.m; sourceTree = "<group>"; };
+		034E34D815CD2E0B0042A116 /* ChapterListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChapterListViewController.h; path = "View Controllers/ChapterListViewController.h"; sourceTree = "<group>"; };
+		034E34D915CD2E0B0042A116 /* ChapterListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChapterListViewController.m; path = "View Controllers/ChapterListViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,14 +104,11 @@
 		034E34A015CCCE1C0042A116 /* Mangareader Client */ = {
 			isa = PBXGroup;
 			children = (
+				034E34BE15CD11AE0042A116 /* Model */,
+				034E34BD15CD11910042A116 /* View Controllers */,
 				034E34A915CCCE1C0042A116 /* AppDelegate.h */,
 				034E34AA15CCCE1C0042A116 /* AppDelegate.m */,
 				034E34AC15CCCE1C0042A116 /* MainStoryboard.storyboard */,
-				034E34B215CCCE1C0042A116 /* MasterViewController.h */,
-				034E34B315CCCE1C0042A116 /* MasterViewController.m */,
-				034E34B515CCCE1C0042A116 /* DetailViewController.h */,
-				034E34B615CCCE1C0042A116 /* DetailViewController.m */,
-				034E34AF15CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld */,
 				034E34A115CCCE1C0042A116 /* Supporting Files */,
 			);
 			path = "Mangareader Client";
@@ -108,6 +123,37 @@
 				034E34A815CCCE1C0042A116 /* Mangareader Client-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		034E34BD15CD11910042A116 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				034E34B215CCCE1C0042A116 /* MasterViewController.h */,
+				034E34B315CCCE1C0042A116 /* MasterViewController.m */,
+				034E34B515CCCE1C0042A116 /* DetailViewController.h */,
+				034E34B615CCCE1C0042A116 /* DetailViewController.m */,
+				034E34D815CD2E0B0042A116 /* ChapterListViewController.h */,
+				034E34D915CD2E0B0042A116 /* ChapterListViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		034E34BE15CD11AE0042A116 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				034E34AF15CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld */,
+				034E34BF15CD13280042A116 /* SeriesManager.h */,
+				034E34C015CD13280042A116 /* SeriesManager.m */,
+				034E34C615CD1DC60042A116 /* MRSeries.h */,
+				034E34C715CD1DC60042A116 /* MRSeries.m */,
+				034E34C915CD1DD80042A116 /* MRChapter.h */,
+				034E34CA15CD1DD80042A116 /* MRChapter.m */,
+				034E34D215CD21820042A116 /* MRPage.h */,
+				034E34D315CD21820042A116 /* MRPage.m */,
+				034E34D515CD21980042A116 /* MRImage.h */,
+				034E34D615CD21980042A116 /* MRImage.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +224,12 @@
 				034E34B115CCCE1C0042A116 /* Mangareader_Client.xcdatamodeld in Sources */,
 				034E34B415CCCE1C0042A116 /* MasterViewController.m in Sources */,
 				034E34B715CCCE1C0042A116 /* DetailViewController.m in Sources */,
+				034E34C115CD13280042A116 /* SeriesManager.m in Sources */,
+				034E34C815CD1DC60042A116 /* MRSeries.m in Sources */,
+				034E34CB15CD1DD80042A116 /* MRChapter.m in Sources */,
+				034E34D415CD21820042A116 /* MRPage.m in Sources */,
+				034E34D715CD21980042A116 /* MRImage.m in Sources */,
+				034E34DA15CD2E0B0042A116 /* ChapterListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +263,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jonathan Mikhail (NZTUM273NP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -226,6 +279,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "04BFDDFE-8778-4DE0-80A5-D2DD5F641D4F";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -239,6 +293,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jonathan Mikhail (NZTUM273NP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -248,6 +303,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "04BFDDFE-8778-4DE0-80A5-D2DD5F641D4F";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

@@ -6,8 +6,20 @@
 //  Copyright (c) 2012 SmrtStudios. All rights reserved.
 //
 
-#import "GRSeries.h"
+#import "MRSeries.h"
 
-@implementation GRSeries
+@implementation MRSeries
+
+@dynamic name;
+@dynamic url;
+@dynamic chapters;
+@dynamic image;
+
++ (MRSeries *)insertInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    
+    return (MRSeries *)[NSEntityDescription insertNewObjectForEntityForName:@"MRSeries"
+                                                    inManagedObjectContext:managedObjectContext];
+}
 
 @end

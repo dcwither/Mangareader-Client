@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class SeriesManager;
+
+@protocol SeriesManagerDelegate <NSObject>
+
+- (void)seriesMangerDidUpdateAvailableSeries: (SeriesManager *) seriesManager;
+
+@end
+
 @interface SeriesManager : NSObject
 
+@property (nonatomic, weak) id<SeriesManagerDelegate> delegate;
+
+- (void) updatAvailableSeries;
+    
 @end

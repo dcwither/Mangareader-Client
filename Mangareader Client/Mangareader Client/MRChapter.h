@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "MRSeries.h"
 
-@interface MRChapter : NSObject
+@interface MRChapter : NSManagedObject
+
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *url;
+
+@property (nonatomic, strong) NSSet *pages;
+@property (nonatomic, strong) MRSeries *series;
 
 @end

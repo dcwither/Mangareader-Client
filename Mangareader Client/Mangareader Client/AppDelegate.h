@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#define BASE_URL @"http://dcwither-udacity-projects.appspot.com"
+#define APP_DELEGATE() ((AppDelegate *) [[UIApplication sharedApplication] delegate])
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

@@ -10,4 +10,7 @@
 
 @implementation MRImage
 
+@dynamic image;
+@dynamic series;
+
 @end

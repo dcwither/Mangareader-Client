@@ -10,4 +10,10 @@
 
 @implementation MRChapter
 
+@dynamic index;
+@dynamic title;
+@dynamic url;
+@dynamic pages;
+@dynamic series;
+
 @end
