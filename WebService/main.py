@@ -16,17 +16,32 @@
 #
 import webapp2
 import json
+import urllib
 
 import BeautifulSoup
-
+import SeriesHandler
+import ChapterHandler
 class MainHandler(webapp2.RequestHandler):
 
     def get(self):
         self.response.headers['Content-Type'] = 'application/json; charset=UTF-8'
-        soup = BeautifulSoup.BeautifulSoup("<p>Some<b>bad<i>HTML")
-        self.response.out.write(soup)
-        
+        mangareader = urllib.urlopen("http://www.mangareader.net")
+        HTML = mangareader.read()
+        soup = BeautifulSoup.BeautifulSoup(HTML)
+        dict = {}
+        for chapter in soup.findAll(attrs={"class":"chapter"}):
 
+            link = str(chapter['href'])
+            name = str(chapter.contents[0].string)
+            dict[name] = link
 
-app = webapp2.WSGIApplication([('/', MainHandler)],
+        json_text = json.dumps(dict)
+        self.response.out.write(json_text)
+
+regex = '/([a-zA-Z0-9_-]+)/([0-9]+)'
+regex = '/([0-9_-]+)?(?:/)?' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:.html)?'
+app = webapp2.WSGIApplication([('/', MainHandler),
+                               ('/([a-zA-Z0-9_-]+)/([0-9]+)', ChapterHandler.ChapterHandler),
+                               ('/([0-9_-]+)?(?:/)?' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:.html)?', ChapterHandler.ChapterHandler),
+                               ('/([0-9]+)?(?:/)?' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:.html)?', SeriesHandler.SeriesHandler)],
                               debug=True)
