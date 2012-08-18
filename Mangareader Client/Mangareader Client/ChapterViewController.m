@@ -137,7 +137,7 @@
         return;
     }
     
-    if (self.loadedPages == 0) {
+    if (self.pageIndex == 0) {
         [self loadPage:1];
     }
     

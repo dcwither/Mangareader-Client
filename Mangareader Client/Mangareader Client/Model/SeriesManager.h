@@ -27,6 +27,7 @@
 - (void)updatePagesForChapter: (MRChapter *) chapter;
 
 @property (nonatomic, weak) id<PageViewer> pageViewer;
+@property (nonatomic, strong) NSOperationQueue *allQueue;
 @property (nonatomic, strong) NSOperationQueue *seriesQueue;
 @property (nonatomic, strong) NSOperationQueue *chapterQueue;
 @property (nonatomic, strong) NSOperationQueue *pageQueue;

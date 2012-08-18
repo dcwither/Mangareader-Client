@@ -17,7 +17,9 @@ static SeriesManager *instance = NULL;
 @implementation SeriesManager
 
 @synthesize pageViewer = _pageViewer;
+@synthesize allQueue = _allQueue;
 @synthesize seriesQueue = _seriesQueue;
+@synthesize chapterQueue = _chapterQueue;
 @synthesize pageQueue = _pageQueue;
 
 + (SeriesManager *)sharedManager
@@ -38,9 +40,11 @@ static SeriesManager *instance = NULL;
 - (id) init
 {
     if (self = [super init]) {
+        self.allQueue = [[NSOperationQueue alloc] init];
         self.seriesQueue = [[NSOperationQueue alloc] init];
         self.chapterQueue = [[NSOperationQueue alloc] init];
         self.pageQueue = [[NSOperationQueue alloc] init];
+        [self.pageQueue setMaxConcurrentOperationCount:3];
     }
     
     return self;
@@ -54,12 +58,12 @@ static SeriesManager *instance = NULL;
     // Series Queue Operation
     //
     
-    if ([self.seriesQueue operationCount] != 0) {
+    if ([self.allQueue operationCount] != 0) {
         // series request currently in progress
         return;
     }
     
-    [self.seriesQueue  addOperationWithBlock:^{
+    [self.allQueue  addOperationWithBlock:^{
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/allseries", BASE_URL]];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url
                                                                   cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -119,13 +123,13 @@ static SeriesManager *instance = NULL;
 - (void)updateChaptersForSeries: (MRSeries *) series
 {
     NSManagedObjectContext *context = APP_DELEGATE().backgroundManagedObjectContext;
-    if ([self.chapterQueue operationCount] != 0) {
+    if ([self.seriesQueue operationCount] != 0) {
         // Won't cancel the current running operation. Could be improved to stop at safe points.
-        [self.chapterQueue cancelAllOperations];
+        [self.seriesQueue cancelAllOperations];
     }
     
     series = (MRSeries *)[context existingObjectWithID:series.objectID error:nil];
-    [self.chapterQueue addOperationWithBlock:^{
+    [self.seriesQueue addOperationWithBlock:^{
         NSURL *seriesURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,series.url]];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:seriesURL
                                                                   cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -170,7 +174,6 @@ static SeriesManager *instance = NULL;
                 }
             }
             
-            
             error = [self saveChanges:context];
             if (error) {
                 NSLog(@"Error saving page");
@@ -190,17 +193,18 @@ static SeriesManager *instance = NULL;
     
     NSManagedObjectContext *context = APP_DELEGATE().backgroundManagedObjectContext;
     
-    if (![self.pageQueue isSuspended]) {
+    if ([self.chapterQueue operationCount] != 0) {
         
         //
         // Won't cancel the current running operation. Could be improved to stop at safe points.
         //
         
+        [self.chapterQueue cancelAllOperations];
         [self.pageQueue cancelAllOperations];
     }
     
     chapter = (MRChapter *)[context existingObjectWithID:chapter.objectID error:nil];
-    [self.pageQueue addOperationWithBlock:^{
+    [self.chapterQueue addOperationWithBlock:^{
         NSURL *chapterURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,chapter.url]];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:chapterURL
                                                                   cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -235,8 +239,8 @@ static SeriesManager *instance = NULL;
                 NSString *url = [page objectForKey:@"image_url"];
                 NSSet *filtered = [chapter.pages filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"(index == %d)", index]];
                 MRPage *pageInstance = nil;
+                
                 if ([filtered count] == 0) {
-                    
                     pageInstance = [MRPage insertInManagedObjectContext:context];
                     pageInstance.url = url;
                     pageInstance.index = index;
@@ -248,12 +252,10 @@ static SeriesManager *instance = NULL;
                 }
                 
                 if (pageInstance.image == nil) {
-                    [context performBlock:^{
+                    [self.pageQueue addOperationWithBlock:^{
                         [self fetchImageForPage:pageInstance];
-                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                            [self.pageViewer pageRecieved:pageInstance];
-                        }];
                     }];
+                    
                 } else {
                     chapter.pageCount += 1;
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -262,10 +264,8 @@ static SeriesManager *instance = NULL;
                 }
             }
             
-            
             error = [self saveChanges:context];
         }];
-        
     }];
 }
 
@@ -289,9 +289,14 @@ static SeriesManager *instance = NULL;
         NSLog(@"Error: %@ response failed on url: %@", requestError, pageURL);
     }
     
-    page.chapter.pageCount += 1;
-    page.image = response;
-    [self saveChanges:context];
+    [context performBlock:^{
+        page.chapter.pageCount += 1;
+        page.image = response;
+        [self saveChanges:context];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.pageViewer pageRecieved:page];
+        }];
+    }];
 }
 
 - (NSError *) saveChanges: (NSManagedObjectContext *) context
