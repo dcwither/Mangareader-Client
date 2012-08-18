@@ -22,7 +22,7 @@
 @interface SeriesManager : NSObject
 
 + (SeriesManager *) sharedManager;
-- (void) updatAvailableSeries;
+- (void) updateAvailableSeries;
 - (void) updateChaptersForSeries: (MRSeries *) series;
 - (void)updatePagesForChapter: (MRChapter *) chapter;
 

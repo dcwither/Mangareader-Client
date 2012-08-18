@@ -4,6 +4,7 @@ import webapp2
 import json
 import urllib
 import JsonDump
+from datetime import datetime, timedelta
 
 import BeautifulSoup
 
@@ -12,7 +13,7 @@ class ChapterHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json; charset=UTF-8'
         url_str = "http://www.mangareader.net" + self.request.path
 
-        saved = JsonDump.JsonDump.all().filter("url = ", url_str).get()
+        saved, age = JsonDump.get_page(url_str)
         if saved:
             self.response.out.write(saved.content)
             return
@@ -40,5 +41,6 @@ class ChapterHandler(webapp2.RequestHandler):
 
         json_text = json.dumps(pages)
         saved = JsonDump.JsonDump(url = url_str, content = json_text)
-        saved.put()
-        self.response.out.write(json_text)
+        JsonDump.age_set(url_str, saved)
+
+        self.response.out.write(saved.content)

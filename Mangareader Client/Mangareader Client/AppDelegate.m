@@ -13,6 +13,7 @@
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize backgroundManagedObjectContext = _backgroundManagedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
@@ -83,10 +84,30 @@
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     return _managedObjectContext;
+}
+
+- (NSManagedObjectContext *)backgroundManagedObjectContext
+{
+    
+    if (_backgroundManagedObjectContext != nil) {
+        return _backgroundManagedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _backgroundManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [_backgroundManagedObjectContext setPersistentStoreCoordinator:coordinator];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(contextDidSave:)
+                                                     name:NSManagedObjectContextDidSaveNotification
+                                                   object:nil];
+    }
+    
+    return _backgroundManagedObjectContext;
 }
 
 // Returns the managed object model for the application.
@@ -142,6 +163,16 @@
     }    
     
     return _persistentStoreCoordinator;
+}
+
+#pragma mark - ManagedObjectContext Oberserver Methods
+
+- (void)contextDidSave:(NSNotification *)notification
+{
+    
+    SEL selector = @selector(mergeChangesFromContextDidSaveNotification:);
+    [self.managedObjectContext performSelectorOnMainThread:selector withObject:notification waitUntilDone:YES];
+    
 }
 
 #pragma mark - Application's Documents directory

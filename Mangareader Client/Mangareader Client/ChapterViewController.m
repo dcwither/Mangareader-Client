@@ -7,6 +7,7 @@
 //
 
 #import "ChapterViewController.h"
+#import "AppDelegate.h"
 
 @interface ChapterViewController ()
 
@@ -130,6 +131,8 @@
 
 - (void) pageRecieved:(MRPage *)page
 {
+    self.chapter = (MRChapter *)[APP_DELEGATE().managedObjectContext objectWithID:self.chapter.objectID];
+    page = (MRPage *)[APP_DELEGATE().managedObjectContext objectWithID:page.objectID];
     if (![self.chapter.pages containsObject:page]) {
         return;
     }

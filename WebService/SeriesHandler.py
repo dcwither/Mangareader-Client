@@ -5,6 +5,7 @@ import json
 import urllib
 import JsonDump
 import BeautifulSoup
+from datetime import datetime, timedelta
 
 
 class SeriesHandler(webapp2.RequestHandler):
@@ -13,8 +14,11 @@ class SeriesHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json; charset=UTF-8'
         url_str = "http://www.mangareader.net" + self.request.path
 
-        saved = JsonDump.JsonDump.all().filter("url = ", url_str).get()
+        saved, age = JsonDump.get_page(url_str)
         if saved:
+            age = (datetime.utcnow().date() - saved.last_modified).total_seconds()
+
+        if saved and age < 60*60:
             self.response.out.write(saved.content)
             return
 
@@ -34,7 +38,10 @@ class SeriesHandler(webapp2.RequestHandler):
             array.append(dict)
 
         json_text = json.dumps(array)
+        if not saved:
+            saved = JsonDump.JsonDump(url = url_str, content = json_text)
+        else:
+            saved.content = json_text
 
-        saved = JsonDump.JsonDump(url = url_str, content = json_text)
-        saved.put()
+        JsonDump.age_set(url_str, saved)
         self.response.out.write(json_text)

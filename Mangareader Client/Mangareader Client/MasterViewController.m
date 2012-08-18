@@ -28,7 +28,7 @@
 {
     
     [super loadView];
-    [[SeriesManager sharedManager] updatAvailableSeries];
+    [[SeriesManager sharedManager] updateAvailableSeries];
 }
 
 - (void)viewDidLoad

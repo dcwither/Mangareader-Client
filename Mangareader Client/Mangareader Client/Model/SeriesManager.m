@@ -46,20 +46,22 @@ static SeriesManager *instance = NULL;
     return self;
 }
 
-- (void)updatAvailableSeries
+- (void)updateAvailableSeries
 {
-    NSManagedObjectContext *context = APP_DELEGATE().managedObjectContext;
+    NSManagedObjectContext *context = APP_DELEGATE().backgroundManagedObjectContext;
     
     //
     // Series Queue Operation
     //
     
-    if (![self.seriesQueue isSuspended]) {
+    if ([self.seriesQueue operationCount] != 0) {
+        // series request currently in progress
         return;
     }
     
     [self.seriesQueue  addOperationWithBlock:^{
-        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:BASE_URL]
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/allseries", BASE_URL]];
+        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url
                                                                   cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                               timeoutInterval:100];
         
@@ -70,10 +72,15 @@ static SeriesManager *instance = NULL;
                                                  returningResponse:&urlResponse
                                                              error:&requestError];
         
+        if (requestError) {
+            NSLog(@"Error: %@ response failed on request: %@", requestError, BASE_URL);
+            return;
+        }
+        
         NSError *jsonError;
         NSArray *jsonResponse = [NSJSONSerialization JSONObjectWithData:response
-                                                                     options:NSJSONReadingMutableContainers
-                                                                       error:&jsonError];
+                                                                options:NSJSONReadingMutableContainers
+                                                                  error:&jsonError];
         
         if (jsonError) {
             NSLog(@"Error: %@ response failed on json: %@", jsonError, BASE_URL);
@@ -100,9 +107,9 @@ static SeriesManager *instance = NULL;
                 }
             }
             
-            [context save:&error];
-            if (jsonError) {
-                NSLog(@"Error saving series: %@", error);
+            error = [self saveChanges:context];
+            if (error) {
+                NSLog(@"Error saving page");
             }
         }];
         
@@ -111,16 +118,13 @@ static SeriesManager *instance = NULL;
 
 - (void)updateChaptersForSeries: (MRSeries *) series
 {
-    NSManagedObjectContext *context = APP_DELEGATE().managedObjectContext;
-    if (![self.chapterQueue isSuspended]) {
-        
-        //
+    NSManagedObjectContext *context = APP_DELEGATE().backgroundManagedObjectContext;
+    if ([self.chapterQueue operationCount] != 0) {
         // Won't cancel the current running operation. Could be improved to stop at safe points.
-        //
-        
         [self.chapterQueue cancelAllOperations];
     }
     
+    series = (MRSeries *)[context existingObjectWithID:series.objectID error:nil];
     [self.chapterQueue addOperationWithBlock:^{
         NSURL *seriesURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,series.url]];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:seriesURL
@@ -166,9 +170,10 @@ static SeriesManager *instance = NULL;
                 }
             }
             
-            [context save:&error];
+            
+            error = [self saveChanges:context];
             if (error) {
-                NSLog(@"Error saving series: %@", error);
+                NSLog(@"Error saving page");
             }
         }];
         
@@ -183,7 +188,7 @@ static SeriesManager *instance = NULL;
         return;
     }
     
-    NSManagedObjectContext *context = APP_DELEGATE().managedObjectContext;
+    NSManagedObjectContext *context = APP_DELEGATE().backgroundManagedObjectContext;
     
     if (![self.pageQueue isSuspended]) {
         
@@ -194,6 +199,7 @@ static SeriesManager *instance = NULL;
         [self.pageQueue cancelAllOperations];
     }
     
+    chapter = (MRChapter *)[context existingObjectWithID:chapter.objectID error:nil];
     [self.pageQueue addOperationWithBlock:^{
         NSURL *chapterURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,chapter.url]];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:chapterURL
@@ -223,8 +229,7 @@ static SeriesManager *instance = NULL;
         [context performBlock:^{
             NSError *error;
             
-            chapter.pageCount = [jsonResponse count];
-            
+            chapter.pageCount = 0;
             for (NSDictionary *page in jsonResponse) {
                 NSInteger index = [[page objectForKey:@"index"] intValue];
                 NSString *url = [page objectForKey:@"image_url"];
@@ -250,17 +255,15 @@ static SeriesManager *instance = NULL;
                         }];
                     }];
                 } else {
+                    chapter.pageCount += 1;
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                         [self.pageViewer pageRecieved:pageInstance];
                     }];
                 }
             }
             
-            [context save:&error];
-            if (error) {
-                
-                NSLog(@"Error saving chapter: %@", error);
-            }
+            
+            error = [self saveChanges:context];
         }];
         
     }];
@@ -269,7 +272,7 @@ static SeriesManager *instance = NULL;
 - (void) fetchImageForPage: (MRPage *) page
 {
     
-    NSManagedObjectContext *context = APP_DELEGATE().managedObjectContext;
+    NSManagedObjectContext *context = APP_DELEGATE().backgroundManagedObjectContext;
     NSURL *pageURL = [NSURL URLWithString:page.url];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pageURL
                                                               cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -286,13 +289,21 @@ static SeriesManager *instance = NULL;
         NSLog(@"Error: %@ response failed on url: %@", requestError, pageURL);
     }
     
+    page.chapter.pageCount += 1;
     page.image = response;
+    [self saveChanges:context];
+}
+
+- (NSError *) saveChanges: (NSManagedObjectContext *) context
+{
     NSError *error;
     [context save:&error];
+    
     if (error) {
         NSLog(@"Error saving page");
     }
     
+    return error;
 }
 
 @end
