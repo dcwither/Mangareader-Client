@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B34692BC-ABC5-499E-A23A-72FBA5770987</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MangaReader</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AC59F9E2-B70C-45FE-BB05-6F120E0A8EBE</key>
+		<string>ssh://bitbucket.org/awiskar/mac-motivators.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MangaReader/MangaReader.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AC59F9E2-B70C-45FE-BB05-6F120E0A8EBE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://bitbucket.org/awiskar/mac-motivators.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AC59F9E2-B70C-45FE-BB05-6F120E0A8EBE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AC59F9E2-B70C-45FE-BB05-6F120E0A8EBE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mac-motivators</string>
+		</dict>
+	</array>
+</dict>
+</plist>
