@@ -17,8 +17,9 @@
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         for (NSDictionary *dict in JSON) {
-            NSString *name = dict[@"name"];
-            NSString *path = dict[@"path"];
+            NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
+            NSString *name = [dict[@"name"] stringByTrimmingCharactersInSet:whitespaceCharacterSet];
+            NSString *path = [dict[@"path"] stringByTrimmingCharactersInSet:whitespaceCharacterSet];
             MRSeries *series = [self findFirstByAttribute:MRSeriesAttributes.name withValue:name];
             if (nil == series) {
                 series = [self insertInManagedObjectContext:[NSManagedObjectContext contextForCurrentThread]];
@@ -47,9 +48,11 @@
         MRSeries *currentThreadSeries = (MRSeries *)[[NSManagedObjectContext contextForCurrentThread] objectWithID:series.objectID];
         
         for (NSDictionary *dict in JSON) {
-            NSString *title = dict[@"name"];
-            NSString *path = dict[@"path"];
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %@", MRChapterAttributes.title, title];
+            NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
+            NSString *title = [dict[@"name"] stringByTrimmingCharactersInSet:whitespaceCharacterSet];
+            NSString *path = [dict[@"path"] stringByTrimmingCharactersInSet:whitespaceCharacterSet];
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", title];
             NSArray *chapters = [[[currentThreadSeries chapters] filteredSetUsingPredicate:predicate] allObjects];
             
             NSAssert(chapters.count <= 1, @"Number of chapters matching this description exceeded the expected range.");
