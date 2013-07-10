@@ -54,9 +54,9 @@ extern const struct MRSeriesFetchedProperties {
 
 
 
-@property (nonatomic, strong) MRChapter *chapters;
+@property (nonatomic, strong) NSSet *chapters;
 
-//- (BOOL)validateChapters:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)chaptersSet;
 
 
 
@@ -65,6 +65,11 @@ extern const struct MRSeriesFetchedProperties {
 @end
 
 @interface _MRSeries (CoreDataGeneratedAccessors)
+
+- (void)addChapters:(NSSet*)value_;
+- (void)removeChapters:(NSSet*)value_;
+- (void)addChaptersObject:(MRChapter*)value_;
+- (void)removeChaptersObject:(MRChapter*)value_;
 
 @end
 
@@ -84,8 +89,8 @@ extern const struct MRSeriesFetchedProperties {
 
 
 
-- (MRChapter*)primitiveChapters;
-- (void)setPrimitiveChapters:(MRChapter*)value;
+- (NSMutableSet*)primitiveChapters;
+- (void)setPrimitiveChapters:(NSMutableSet*)value;
 
 
 @end

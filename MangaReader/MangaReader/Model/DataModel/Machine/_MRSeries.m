@@ -65,6 +65,15 @@ const struct MRSeriesFetchedProperties MRSeriesFetchedProperties = {
 @dynamic chapters;
 
 	
+- (NSMutableSet*)chaptersSet {
+	[self willAccessValueForKey:@"chapters"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"chapters"];
+  
+	[self didAccessValueForKey:@"chapters"];
+	return result;
+}
+	
 
 
 

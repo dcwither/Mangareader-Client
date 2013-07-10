@@ -88,9 +88,9 @@ extern const struct MRChapterFetchedProperties {
 
 
 
-@property (nonatomic, strong) MRPage *pages;
+@property (nonatomic, strong) NSSet *pages;
 
-//- (BOOL)validatePages:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)pagesSet;
 
 
 
@@ -106,6 +106,11 @@ extern const struct MRChapterFetchedProperties {
 @end
 
 @interface _MRChapter (CoreDataGeneratedAccessors)
+
+- (void)addPages:(NSSet*)value_;
+- (void)removePages:(NSSet*)value_;
+- (void)addPagesObject:(MRPage*)value_;
+- (void)removePagesObject:(MRPage*)value_;
 
 @end
 
@@ -143,8 +148,8 @@ extern const struct MRChapterFetchedProperties {
 
 
 
-- (MRPage*)primitivePages;
-- (void)setPrimitivePages:(MRPage*)value;
+- (NSMutableSet*)primitivePages;
+- (void)setPrimitivePages:(NSMutableSet*)value;
 
 
 

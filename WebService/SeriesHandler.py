@@ -33,8 +33,8 @@ class SeriesHandler(webapp2.RequestHandler):
 
             anchor = chicodiv.parent.a
             name = str(anchor.string)
-            link = anchor['href']
-            dict = {"name":name, "link":link}
+            path = anchor['href']
+            dict = {"name":name, "path":path}
             array.append(dict)
 
         json_text = json.dumps(array)

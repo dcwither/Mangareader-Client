@@ -7,6 +7,8 @@
 //
 
 #import "MRSelectSeriesViewController.h"
+#import "MRSelectViewController+Protected.h"
+#import "MRSelectChapterViewController.h"
 #import "MRSeries.h"
 #import "MRHTTPClient.h"
 
@@ -15,9 +17,6 @@
 @interface MRSelectSeriesViewController ()
 
 @property (nonatomic, strong) NSArray *allSeries;
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic, strong) NSArray *filteredSeries;
 
 @end
 
@@ -43,56 +42,19 @@
         [operation start];
         
         self.allSeries = [MRSeries findAllSortedBy:MRSeriesAttributes.name ascending:YES];
-        self.filteredSeries = self.allSeries;
+        self.filteredMembers = self.allSeries;
     }
     return self;
 }
 
-- (void)loadView
-{
-    [super loadView];
-    
-    CGRect frame = self.view.frame;
-    frame.origin.y = 0;
-    
-    self.searchBar = [[UISearchBar alloc] initWithFrame:frame];
-    self.searchBar.delegate = self;
-    [self.searchBar sizeToFit];
-    self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    
-    frame.origin.y = self.searchBar.frame.size.height;
-    frame.size.height = self.view.frame.size.height - frame.origin.y;
-    self.tableView = [[UITableView alloc] initWithFrame:frame];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
-    [self.view addSubview:self.searchBar];
-    [self.view addSubview:self.tableView];
-    self.searchBar.userInteractionEnabled = YES;
-}
+#pragma mark - UITableViewDataSource
 
-
-#pragma mark - TableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.filteredSeries.count;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"series cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"series cell"];
-    }
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
-    MRSeries *series = self.filteredSeries[indexPath.row];
+    MRSeries *series = self.filteredMembers[indexPath.row];
     cell.textLabel.text = series.name;
     
     return cell;
@@ -102,21 +64,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MRSelectChapterViewController *chapterViewController = [[MRSelectChapterViewController alloc] initWithSeries:self.filteredMembers[indexPath.row]];
+    [self.navigationController pushViewController:chapterViewController animated:YES];
 }
 
-#pragma mark - SearchBarDelegate
+#pragma mark - Protected Methods
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+- (NSArray *)getAllMembers
 {
-    if (searchText == nil || [searchText length] == 0) {
-        self.filteredSeries = self.allSeries;
-    } else {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name beginswith[cd] %@", searchText];
-        self.filteredSeries = [self.allSeries filteredArrayUsingPredicate:predicate];
-    }
-    
-    [self.tableView reloadData];
+    return self.allSeries;
 }
 
 @end

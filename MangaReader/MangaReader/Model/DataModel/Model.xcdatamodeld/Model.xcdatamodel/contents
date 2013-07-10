@@ -3,27 +3,27 @@
     <entity name="MRChapter" representedClassName="MRChapter" syncable="YES">
         <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="pageCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="pages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MRPage" inverseName="chapter" inverseEntity="MRPage" syncable="YES"/>
-        <relationship name="series" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MRSeries" inverseName="chapters" inverseEntity="MRSeries" syncable="YES"/>
+        <attribute name="path" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MRPage" inverseName="chapter" inverseEntity="MRPage" syncable="YES"/>
+        <relationship name="series" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MRSeries" inverseName="chapters" inverseEntity="MRSeries" syncable="YES"/>
     </entity>
     <entity name="MRImage" syncable="YES"/>
     <entity name="MRPage" representedClassName="MRPage" syncable="YES">
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="chapter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MRChapter" inverseName="pages" inverseEntity="MRChapter" syncable="YES"/>
+        <relationship name="chapter" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MRChapter" inverseName="pages" inverseEntity="MRChapter" syncable="YES"/>
     </entity>
     <entity name="MRSeries" representedClassName="MRSeries" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="chapters" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MRChapter" inverseName="series" inverseEntity="MRChapter" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="path" attributeType="String" syncable="YES"/>
+        <relationship name="chapters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MRChapter" inverseName="series" inverseEntity="MRChapter" syncable="YES"/>
     </entity>
     <elements>
         <element name="MRChapter" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="MRImage" positionX="160" positionY="192" width="128" height="45"/>
         <element name="MRPage" positionX="0" positionY="0" width="128" height="105"/>
         <element name="MRSeries" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="MRImage" positionX="160" positionY="192" width="128" height="45"/>
     </elements>
 </model>

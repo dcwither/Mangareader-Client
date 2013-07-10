@@ -130,6 +130,15 @@ const struct MRChapterFetchedProperties MRChapterFetchedProperties = {
 @dynamic pages;
 
 	
+- (NSMutableSet*)pagesSet {
+	[self willAccessValueForKey:@"pages"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"pages"];
+  
+	[self didAccessValueForKey:@"pages"];
+	return result;
+}
+	
 
 @dynamic series;
 

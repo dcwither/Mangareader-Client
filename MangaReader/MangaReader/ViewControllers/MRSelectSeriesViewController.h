@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Devin Witherspoon. All rights reserved.
 //
 
+#import "MRSelectViewController.h"
+
 #import <UIKit/UIKit.h>
 
-@interface MRSelectSeriesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface MRSelectSeriesViewController : MRSelectViewController
 
 @end

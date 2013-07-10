@@ -44,9 +44,9 @@ class MainHandler(webapp2.RequestHandler):
         array = []
         for popular in soup.findAll(attrs={"class":"popularitemcaption"}):
 
-            link = str(popular['href'])
+            path = str(popular['href'])
             name = str(popular.string)
-            dict = {"name":name, "link":link}
+            dict = {"name":name, "path":path}
             array.append(dict)
             if len(array) == 5:
                 break
@@ -80,9 +80,9 @@ class AllSeriesHandler(webapp2.RequestHandler):
         for letter in soup.findAll("ul",attrs={"class":"series_alpha"}):
             for series in letter.contents:
                 try:
-                    link = str(series.a['href'])
+                    path = str(series.a['href'])
                     name = str(series.a.string)
-                    dict = {"name":name, "link":link}
+                    dict = {"name":name, "path":path}
                     array.append(dict)
                 except KeyError:
                     continue
