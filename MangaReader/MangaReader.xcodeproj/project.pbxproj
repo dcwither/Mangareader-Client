@@ -1,1104 +1,628 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>753334AF52504716BEEC182F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>1</string>
-		</dict>
-		<key>9D2A4CB9F33849CE954CA0FA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>../Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A85EF858AC274882A63FA767</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E5F7BB6AD972402EB4745EC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>A964F492178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F4A6178CB01100B1C81A</string>
-				<string>A964F4C3178CB01100B1C81A</string>
-				<string>A964F49D178CB01100B1C81A</string>
-				<string>A964F49C178CB01100B1C81A</string>
-				<string>9D2A4CB9F33849CE954CA0FA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F493178CB01100B1C81A</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>MR</string>
-				<key>LastUpgradeCheck</key>
-				<string>0500</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Devin Witherspoon</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>A964F49A178CB01100B1C81A</key>
-					<dict>
-						<key>DevelopmentTeam</key>
-						<string>U2MBGT6A5Y</string>
-					</dict>
-					<key>A964F4BA178CB01100B1C81A</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>A964F49A178CB01100B1C81A</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>A964F496178CB01100B1C81A</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>A964F492178CB01100B1C81A</string>
-			<key>productRefGroup</key>
-			<string>A964F49C178CB01100B1C81A</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>A964F49A178CB01100B1C81A</string>
-				<string>A964F4BA178CB01100B1C81A</string>
-			</array>
-		</dict>
-		<key>A964F496178CB01100B1C81A</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>A964F4CB178CB01100B1C81A</string>
-				<string>A964F4CC178CB01100B1C81A</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>A964F497178CB01100B1C81A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A964F4AD178CB01100B1C81A</string>
-				<string>A964F4B1178CB01100B1C81A</string>
-				<string>A964F4B4178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A964F498178CB01100B1C81A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A964F4A1178CB01100B1C81A</string>
-				<string>A964F4A5178CB01100B1C81A</string>
-				<string>A964F4A3178CB01100B1C81A</string>
-				<string>A964F49F178CB01100B1C81A</string>
-				<string>A85EF858AC274882A63FA767</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A964F499178CB01100B1C81A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A964F4AB178CB01100B1C81A</string>
-				<string>A964F4B6178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A964F49A178CB01100B1C81A</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>A964F4CD178CB01100B1C81A</string>
-			<key>buildPhases</key>
-			<array>
-				<string>753334AF52504716BEEC182F</string>
-				<string>A964F497178CB01100B1C81A</string>
-				<string>A964F498178CB01100B1C81A</string>
-				<string>A964F499178CB01100B1C81A</string>
-				<string>DB0A94B2FED94BF6BF17EA2C</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>MangaReader</string>
-			<key>productName</key>
-			<string>MangaReader</string>
-			<key>productReference</key>
-			<string>A964F49B178CB01100B1C81A</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>A964F49B178CB01100B1C81A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>MangaReader.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>A964F49C178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F49B178CB01100B1C81A</string>
-				<string>A964F4BB178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F49D178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F49E178CB01100B1C81A</string>
-				<string>A964F4A0178CB01100B1C81A</string>
-				<string>A964F4A2178CB01100B1C81A</string>
-				<string>A964F4A4178CB01100B1C81A</string>
-				<string>A964F4BC178CB01100B1C81A</string>
-				<string>E5F7BB6AD972402EB4745EC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F49E178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>A964F49F178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F49E178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4A0178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>A964F4A1178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4A0178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4A2178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>A964F4A3178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4A2178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4A4178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreData.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreData.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>A964F4A5178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4A4178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4A6178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F4AF178CB01100B1C81A</string>
-				<string>A964F4B0178CB01100B1C81A</string>
-				<string>A964F4B5178CB01100B1C81A</string>
-				<string>A964F4B2178CB01100B1C81A</string>
-				<string>A964F4A7178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>MangaReader</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4A7178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F4A8178CB01100B1C81A</string>
-				<string>A964F4A9178CB01100B1C81A</string>
-				<string>A964F4AC178CB01100B1C81A</string>
-				<string>A964F4AE178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4A8178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>MangaReader-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4A9178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F4AA178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4AA178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4AB178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4A9178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4AC178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4AD178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4AC178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4AE178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MangaReader-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4AF178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MRAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4B0178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MRAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4B1178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4B0178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4B2178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F4B3178CB01100B1C81A</string>
-			</array>
-			<key>currentVersion</key>
-			<string>A964F4B3178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>MangaReader.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>A964F4B3178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>MangaReader.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4B4178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4B2178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4B5178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4B6178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4B5178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4B7178CB01100B1C81A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A964F4CA178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A964F4B8178CB01100B1C81A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A964F4BD178CB01100B1C81A</string>
-				<string>A964F4C0178CB01100B1C81A</string>
-				<string>A964F4BF178CB01100B1C81A</string>
-				<string>A964F4BE178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A964F4B9178CB01100B1C81A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A964F4C8178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A964F4BA178CB01100B1C81A</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>A964F4D0178CB01100B1C81A</string>
-			<key>buildPhases</key>
-			<array>
-				<string>A964F4B7178CB01100B1C81A</string>
-				<string>A964F4B8178CB01100B1C81A</string>
-				<string>A964F4B9178CB01100B1C81A</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>A964F4C2178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>MangaReaderTests</string>
-			<key>productName</key>
-			<string>MangaReaderTests</string>
-			<key>productReference</key>
-			<string>A964F4BB178CB01100B1C81A</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>A964F4BB178CB01100B1C81A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>MangaReaderTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>A964F4BC178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>A964F4BD178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4BC178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4BE178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F49E178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4BF178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4A2178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4C0178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4A4178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4C1178CB01100B1C81A</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>A964F493178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>A964F49A178CB01100B1C81A</string>
-			<key>remoteInfo</key>
-			<string>MangaReader</string>
-		</dict>
-		<key>A964F4C2178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>A964F49A178CB01100B1C81A</string>
-			<key>targetProxy</key>
-			<string>A964F4C1178CB01100B1C81A</string>
-		</dict>
-		<key>A964F4C3178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F4C9178CB01100B1C81A</string>
-				<string>A964F4C4178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>MangaReaderTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4C4178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F4C5178CB01100B1C81A</string>
-				<string>A964F4C6178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4C5178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>MangaReaderTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4C6178CB01100B1C81A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A964F4C7178CB01100B1C81A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4C7178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4C8178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4C6178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4C9178CB01100B1C81A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MangaReaderTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A964F4CA178CB01100B1C81A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A964F4C9178CB01100B1C81A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A964F4CB178CB01100B1C81A</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>A964F4CC178CB01100B1C81A</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>A964F4CD178CB01100B1C81A</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>A964F4CE178CB01100B1C81A</string>
-				<string>A964F4CF178CB01100B1C81A</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>A964F4CE178CB01100B1C81A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9D2A4CB9F33849CE954CA0FA</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>MangaReader/MangaReader-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MangaReader/MangaReader-Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>2</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>A964F4CF178CB01100B1C81A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9D2A4CB9F33849CE954CA0FA</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Distribution</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>MangaReader/MangaReader-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MangaReader/MangaReader-Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>2</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>A964F4D0178CB01100B1C81A</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>A964F4D1178CB01100B1C81A</string>
-				<string>A964F4D2178CB01100B1C81A</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>A964F4D1178CB01100B1C81A</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/MangaReader.app/MangaReader</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>MangaReader/MangaReader-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>MangaReaderTests/MangaReaderTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>A964F4D2178CB01100B1C81A</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/MangaReader.app/MangaReader</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>MangaReader/MangaReader-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MangaReaderTests/MangaReaderTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>DB0A94B2FED94BF6BF17EA2C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/../Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>1</string>
-		</dict>
-		<key>E5F7BB6AD972402EB4745EC5</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods.a</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>A964F493178CB01100B1C81A</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A85EF858AC274882A63FA767 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F7BB6AD972402EB4745EC5 /* libPods.a */; };
+		A942E7B9178CE5FC00F1B235 /* _MRChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A942E7B4178CE5FC00F1B235 /* _MRChapter.m */; };
+		A942E7BA178CE5FC00F1B235 /* _MRPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A942E7B6178CE5FC00F1B235 /* _MRPage.m */; };
+		A942E7BB178CE5FC00F1B235 /* _MRSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = A942E7B8178CE5FC00F1B235 /* _MRSeries.m */; };
+		A942E7C2178CE60800F1B235 /* MRChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A942E7BD178CE60800F1B235 /* MRChapter.m */; };
+		A942E7C3178CE60800F1B235 /* MRPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A942E7BF178CE60800F1B235 /* MRPage.m */; };
+		A942E7C4178CE60800F1B235 /* MRSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = A942E7C1178CE60800F1B235 /* MRSeries.m */; };
+		A942E7C7178CE67000F1B235 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A942E7C5178CE67000F1B235 /* Model.xcdatamodeld */; };
+		A942E7C8178CE74000F1B235 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A942E7C5178CE67000F1B235 /* Model.xcdatamodeld */; };
+		A942E7CC178CE91500F1B235 /* MRSelectSeriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A942E7CB178CE91500F1B235 /* MRSelectSeriesViewController.m */; };
+		A942E7D0178CEB0500F1B235 /* MRHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A942E7CF178CEB0500F1B235 /* MRHTTPClient.m */; };
+		A964F49F178CB01100B1C81A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F49E178CB01100B1C81A /* Foundation.framework */; };
+		A964F4A1178CB01100B1C81A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F4A0178CB01100B1C81A /* CoreGraphics.framework */; };
+		A964F4A3178CB01100B1C81A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F4A2178CB01100B1C81A /* UIKit.framework */; };
+		A964F4A5178CB01100B1C81A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F4A4178CB01100B1C81A /* CoreData.framework */; };
+		A964F4AB178CB01100B1C81A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A964F4A9178CB01100B1C81A /* InfoPlist.strings */; };
+		A964F4AD178CB01100B1C81A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A964F4AC178CB01100B1C81A /* main.m */; };
+		A964F4B1178CB01100B1C81A /* MRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A964F4B0178CB01100B1C81A /* MRAppDelegate.m */; };
+		A964F4B6178CB01100B1C81A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A964F4B5178CB01100B1C81A /* Images.xcassets */; };
+		A964F4BD178CB01100B1C81A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F4BC178CB01100B1C81A /* XCTest.framework */; };
+		A964F4BE178CB01100B1C81A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F49E178CB01100B1C81A /* Foundation.framework */; };
+		A964F4BF178CB01100B1C81A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F4A2178CB01100B1C81A /* UIKit.framework */; };
+		A964F4C0178CB01100B1C81A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F4A4178CB01100B1C81A /* CoreData.framework */; };
+		A964F4C8178CB01100B1C81A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A964F4C6178CB01100B1C81A /* InfoPlist.strings */; };
+		A964F4CA178CB01100B1C81A /* MangaReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A964F4C9178CB01100B1C81A /* MangaReaderTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A964F4C1178CB01100B1C81A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A964F493178CB01100B1C81A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A964F49A178CB01100B1C81A;
+			remoteInfo = MangaReader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9D2A4CB9F33849CE954CA0FA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		A942E7B3178CE5FC00F1B235 /* _MRChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MRChapter.h; sourceTree = "<group>"; };
+		A942E7B4178CE5FC00F1B235 /* _MRChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MRChapter.m; sourceTree = "<group>"; };
+		A942E7B5178CE5FC00F1B235 /* _MRPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MRPage.h; sourceTree = "<group>"; };
+		A942E7B6178CE5FC00F1B235 /* _MRPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MRPage.m; sourceTree = "<group>"; };
+		A942E7B7178CE5FC00F1B235 /* _MRSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MRSeries.h; sourceTree = "<group>"; };
+		A942E7B8178CE5FC00F1B235 /* _MRSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MRSeries.m; sourceTree = "<group>"; };
+		A942E7BC178CE60800F1B235 /* MRChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRChapter.h; sourceTree = "<group>"; };
+		A942E7BD178CE60800F1B235 /* MRChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRChapter.m; sourceTree = "<group>"; };
+		A942E7BE178CE60800F1B235 /* MRPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRPage.h; sourceTree = "<group>"; };
+		A942E7BF178CE60800F1B235 /* MRPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRPage.m; sourceTree = "<group>"; };
+		A942E7C0178CE60800F1B235 /* MRSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSeries.h; sourceTree = "<group>"; };
+		A942E7C1178CE60800F1B235 /* MRSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSeries.m; sourceTree = "<group>"; };
+		A942E7C6178CE67000F1B235 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A942E7CA178CE91500F1B235 /* MRSelectSeriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSelectSeriesViewController.h; sourceTree = "<group>"; };
+		A942E7CB178CE91500F1B235 /* MRSelectSeriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSelectSeriesViewController.m; sourceTree = "<group>"; };
+		A942E7CE178CEB0500F1B235 /* MRHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRHTTPClient.h; sourceTree = "<group>"; };
+		A942E7CF178CEB0500F1B235 /* MRHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRHTTPClient.m; sourceTree = "<group>"; };
+		A964F49B178CB01100B1C81A /* MangaReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A964F49E178CB01100B1C81A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A964F4A0178CB01100B1C81A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A964F4A2178CB01100B1C81A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A964F4A4178CB01100B1C81A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A964F4A8178CB01100B1C81A /* MangaReader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MangaReader-Info.plist"; sourceTree = "<group>"; };
+		A964F4AA178CB01100B1C81A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A964F4AC178CB01100B1C81A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A964F4AE178CB01100B1C81A /* MangaReader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MangaReader-Prefix.pch"; sourceTree = "<group>"; };
+		A964F4AF178CB01100B1C81A /* MRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRAppDelegate.h; sourceTree = "<group>"; };
+		A964F4B0178CB01100B1C81A /* MRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRAppDelegate.m; sourceTree = "<group>"; };
+		A964F4B5178CB01100B1C81A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A964F4BB178CB01100B1C81A /* MangaReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangaReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A964F4BC178CB01100B1C81A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A964F4C5178CB01100B1C81A /* MangaReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MangaReaderTests-Info.plist"; sourceTree = "<group>"; };
+		A964F4C7178CB01100B1C81A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A964F4C9178CB01100B1C81A /* MangaReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MangaReaderTests.m; sourceTree = "<group>"; };
+		E5F7BB6AD972402EB4745EC5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A964F498178CB01100B1C81A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A964F4A1178CB01100B1C81A /* CoreGraphics.framework in Frameworks */,
+				A964F4A5178CB01100B1C81A /* CoreData.framework in Frameworks */,
+				A964F4A3178CB01100B1C81A /* UIKit.framework in Frameworks */,
+				A964F49F178CB01100B1C81A /* Foundation.framework in Frameworks */,
+				A85EF858AC274882A63FA767 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A964F4B8178CB01100B1C81A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A964F4BD178CB01100B1C81A /* XCTest.framework in Frameworks */,
+				A964F4C0178CB01100B1C81A /* CoreData.framework in Frameworks */,
+				A964F4BF178CB01100B1C81A /* UIKit.framework in Frameworks */,
+				A964F4BE178CB01100B1C81A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9095DBD178CD0660076375E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A942E7CD178CEAC600F1B235 /* Networking */,
+				A9095DBE178CD06C0076375E /* DataModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A9095DBE178CD06C0076375E /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				A942E7C5178CE67000F1B235 /* Model.xcdatamodeld */,
+				A9930248178CD29200464247 /* Machine */,
+				A9930247178CD28C00464247 /* Human */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		A942E7C9178CE8D800F1B235 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A942E7CA178CE91500F1B235 /* MRSelectSeriesViewController.h */,
+				A942E7CB178CE91500F1B235 /* MRSelectSeriesViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A942E7CD178CEAC600F1B235 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A942E7CE178CEB0500F1B235 /* MRHTTPClient.h */,
+				A942E7CF178CEB0500F1B235 /* MRHTTPClient.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A964F492178CB01100B1C81A = {
+			isa = PBXGroup;
+			children = (
+				A964F4A6178CB01100B1C81A /* MangaReader */,
+				A964F4C3178CB01100B1C81A /* MangaReaderTests */,
+				A964F49D178CB01100B1C81A /* Frameworks */,
+				A964F49C178CB01100B1C81A /* Products */,
+				9D2A4CB9F33849CE954CA0FA /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		A964F49C178CB01100B1C81A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A964F49B178CB01100B1C81A /* MangaReader.app */,
+				A964F4BB178CB01100B1C81A /* MangaReaderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A964F49D178CB01100B1C81A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A964F49E178CB01100B1C81A /* Foundation.framework */,
+				A964F4A0178CB01100B1C81A /* CoreGraphics.framework */,
+				A964F4A2178CB01100B1C81A /* UIKit.framework */,
+				A964F4A4178CB01100B1C81A /* CoreData.framework */,
+				A964F4BC178CB01100B1C81A /* XCTest.framework */,
+				E5F7BB6AD972402EB4745EC5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A964F4A6178CB01100B1C81A /* MangaReader */ = {
+			isa = PBXGroup;
+			children = (
+				A942E7C9178CE8D800F1B235 /* ViewControllers */,
+				A9095DBD178CD0660076375E /* Model */,
+				A964F4AF178CB01100B1C81A /* MRAppDelegate.h */,
+				A964F4B0178CB01100B1C81A /* MRAppDelegate.m */,
+				A964F4B5178CB01100B1C81A /* Images.xcassets */,
+				A964F4A7178CB01100B1C81A /* Supporting Files */,
+			);
+			path = MangaReader;
+			sourceTree = "<group>";
+		};
+		A964F4A7178CB01100B1C81A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A964F4A8178CB01100B1C81A /* MangaReader-Info.plist */,
+				A964F4A9178CB01100B1C81A /* InfoPlist.strings */,
+				A964F4AC178CB01100B1C81A /* main.m */,
+				A964F4AE178CB01100B1C81A /* MangaReader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A964F4C3178CB01100B1C81A /* MangaReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				A964F4C9178CB01100B1C81A /* MangaReaderTests.m */,
+				A964F4C4178CB01100B1C81A /* Supporting Files */,
+			);
+			path = MangaReaderTests;
+			sourceTree = "<group>";
+		};
+		A964F4C4178CB01100B1C81A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A964F4C5178CB01100B1C81A /* MangaReaderTests-Info.plist */,
+				A964F4C6178CB01100B1C81A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9930247178CD28C00464247 /* Human */ = {
+			isa = PBXGroup;
+			children = (
+				A942E7BC178CE60800F1B235 /* MRChapter.h */,
+				A942E7BD178CE60800F1B235 /* MRChapter.m */,
+				A942E7BE178CE60800F1B235 /* MRPage.h */,
+				A942E7BF178CE60800F1B235 /* MRPage.m */,
+				A942E7C0178CE60800F1B235 /* MRSeries.h */,
+				A942E7C1178CE60800F1B235 /* MRSeries.m */,
+			);
+			path = Human;
+			sourceTree = "<group>";
+		};
+		A9930248178CD29200464247 /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+				A942E7B3178CE5FC00F1B235 /* _MRChapter.h */,
+				A942E7B4178CE5FC00F1B235 /* _MRChapter.m */,
+				A942E7B5178CE5FC00F1B235 /* _MRPage.h */,
+				A942E7B6178CE5FC00F1B235 /* _MRPage.m */,
+				A942E7B7178CE5FC00F1B235 /* _MRSeries.h */,
+				A942E7B8178CE5FC00F1B235 /* _MRSeries.m */,
+			);
+			path = Machine;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A964F49A178CB01100B1C81A /* MangaReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A964F4CD178CB01100B1C81A /* Build configuration list for PBXNativeTarget "MangaReader" */;
+			buildPhases = (
+				753334AF52504716BEEC182F /* Check Pods Manifest.lock */,
+				A964F497178CB01100B1C81A /* Sources */,
+				A964F498178CB01100B1C81A /* Frameworks */,
+				A964F499178CB01100B1C81A /* Resources */,
+				DB0A94B2FED94BF6BF17EA2C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MangaReader;
+			productName = MangaReader;
+			productReference = A964F49B178CB01100B1C81A /* MangaReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A964F4BA178CB01100B1C81A /* MangaReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A964F4D0178CB01100B1C81A /* Build configuration list for PBXNativeTarget "MangaReaderTests" */;
+			buildPhases = (
+				A964F4B7178CB01100B1C81A /* Sources */,
+				A964F4B8178CB01100B1C81A /* Frameworks */,
+				A964F4B9178CB01100B1C81A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A964F4C2178CB01100B1C81A /* PBXTargetDependency */,
+			);
+			name = MangaReaderTests;
+			productName = MangaReaderTests;
+			productReference = A964F4BB178CB01100B1C81A /* MangaReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A964F493178CB01100B1C81A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MR;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Devin Witherspoon";
+				TargetAttributes = {
+					A964F49A178CB01100B1C81A = {
+						DevelopmentTeam = U2MBGT6A5Y;
+					};
+					A964F4BA178CB01100B1C81A = {
+						TestTargetID = A964F49A178CB01100B1C81A;
+					};
+				};
+			};
+			buildConfigurationList = A964F496178CB01100B1C81A /* Build configuration list for PBXProject "MangaReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A964F492178CB01100B1C81A;
+			productRefGroup = A964F49C178CB01100B1C81A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A964F49A178CB01100B1C81A /* MangaReader */,
+				A964F4BA178CB01100B1C81A /* MangaReaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A964F499178CB01100B1C81A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A964F4AB178CB01100B1C81A /* InfoPlist.strings in Resources */,
+				A964F4B6178CB01100B1C81A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A964F4B9178CB01100B1C81A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A964F4C8178CB01100B1C81A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		753334AF52504716BEEC182F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		DB0A94B2FED94BF6BF17EA2C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A964F497178CB01100B1C81A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A964F4AD178CB01100B1C81A /* main.m in Sources */,
+				A964F4B1178CB01100B1C81A /* MRAppDelegate.m in Sources */,
+				A942E7B9178CE5FC00F1B235 /* _MRChapter.m in Sources */,
+				A942E7BA178CE5FC00F1B235 /* _MRPage.m in Sources */,
+				A942E7BB178CE5FC00F1B235 /* _MRSeries.m in Sources */,
+				A942E7C2178CE60800F1B235 /* MRChapter.m in Sources */,
+				A942E7C3178CE60800F1B235 /* MRPage.m in Sources */,
+				A942E7C4178CE60800F1B235 /* MRSeries.m in Sources */,
+				A942E7C7178CE67000F1B235 /* Model.xcdatamodeld in Sources */,
+				A942E7CC178CE91500F1B235 /* MRSelectSeriesViewController.m in Sources */,
+				A942E7D0178CEB0500F1B235 /* MRHTTPClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A964F4B7178CB01100B1C81A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A964F4CA178CB01100B1C81A /* MangaReaderTests.m in Sources */,
+				A942E7C8178CE74000F1B235 /* Model.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A964F4C2178CB01100B1C81A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A964F49A178CB01100B1C81A /* MangaReader */;
+			targetProxy = A964F4C1178CB01100B1C81A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A964F4A9178CB01100B1C81A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A964F4AA178CB01100B1C81A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A964F4C6178CB01100B1C81A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A964F4C7178CB01100B1C81A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A964F4CB178CB01100B1C81A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		A964F4CC178CB01100B1C81A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A964F4CE178CB01100B1C81A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D2A4CB9F33849CE954CA0FA /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MangaReader/MangaReader-Prefix.pch";
+				INFOPLIST_FILE = "MangaReader/MangaReader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A964F4CF178CB01100B1C81A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D2A4CB9F33849CE954CA0FA /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MangaReader/MangaReader-Prefix.pch";
+				INFOPLIST_FILE = "MangaReader/MangaReader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A964F4D1178CB01100B1C81A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MangaReader.app/MangaReader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MangaReader/MangaReader-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MangaReaderTests/MangaReaderTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A964F4D2178CB01100B1C81A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MangaReader.app/MangaReader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MangaReader/MangaReader-Prefix.pch";
+				INFOPLIST_FILE = "MangaReaderTests/MangaReaderTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A964F496178CB01100B1C81A /* Build configuration list for PBXProject "MangaReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A964F4CB178CB01100B1C81A /* Debug */,
+				A964F4CC178CB01100B1C81A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A964F4CD178CB01100B1C81A /* Build configuration list for PBXNativeTarget "MangaReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A964F4CE178CB01100B1C81A /* Debug */,
+				A964F4CF178CB01100B1C81A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A964F4D0178CB01100B1C81A /* Build configuration list for PBXNativeTarget "MangaReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A964F4D1178CB01100B1C81A /* Debug */,
+				A964F4D2178CB01100B1C81A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A942E7C5178CE67000F1B235 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A942E7C6178CE67000F1B235 /* Model.xcdatamodel */,
+			);
+			currentVersion = A942E7C6178CE67000F1B235 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A964F493178CB01100B1C81A /* Project object */;
+}

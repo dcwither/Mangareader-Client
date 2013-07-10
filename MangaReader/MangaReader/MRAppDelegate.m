@@ -7,6 +7,7 @@
 //
 
 #import "MRAppDelegate.h"
+#import "MRSelectSeriesViewController.h"
 #import <PKRevealController/PKRevealController.h>
 
 @implementation MRAppDelegate
@@ -14,9 +15,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+//    [MagicalRecord setShouldDeleteStoreOnModelMismatch:YES];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"MangaReader.sqlite"];
+    
     UIViewController *frontViewController = [[UIViewController alloc] init];
-    UIViewController *leftViewController = [[UITableViewController alloc] init];
+    UIViewController *leftViewController = [[MRSelectSeriesViewController alloc] init];
     self.window.rootViewController = [[PKRevealController alloc] initWithFrontViewController:frontViewController leftViewController:leftViewController options:nil];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -49,7 +53,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
-    [[NSManagedObjectContext defaultContext] save:nil];
+    [MagicalRecord cleanUp];
 }
 
 #pragma mark - Application's Documents directory
