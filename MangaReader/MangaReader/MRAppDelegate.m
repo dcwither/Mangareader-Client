@@ -16,7 +16,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-//    [MagicalRecord setShouldDeleteStoreOnModelMismatch:YES];
+    [MagicalRecord setShouldDeleteStoreOnModelMismatch:YES];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"MangaReader.sqlite"];
     
     UIViewController *frontViewController = [[UIViewController alloc] init];

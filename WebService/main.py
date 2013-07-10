@@ -100,7 +100,7 @@ class AllSeriesHandler(webapp2.RequestHandler):
         self.response.out.write(json_text)
 
 app = webapp2.WSGIApplication([('/', MainHandler),
-                               ('/allseries', AllSeriesHandler),
+                               ('/all', AllSeriesHandler),
                                ('/([a-zA-Z0-9_-]+)/([0-9]+)', ChapterHandler.ChapterHandler),
                                ('/([0-9_-]+)/' + '([a-zA-Z0-9_-]+/)' + '([a-zA-Z0-9_-]+(?:/)?)' + '(?:.html)?', ChapterHandler.ChapterHandler),
                                ('/([0-9]+)?(?:/)?' + '(?:[a-zA-Z0-9_-]+/?)' + '(?:.html)?', SeriesHandler.SeriesHandler)],

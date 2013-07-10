@@ -25,7 +25,7 @@
 
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        NSURLRequest *request = [[MRHTTPClient sharedClient] requestWithMethod:@"GET" path:@"allseries" parameters:nil];
+        NSURLRequest *request = [[MRHTTPClient sharedClient] requestWithMethod:@"GET" path:@"all" parameters:nil];
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             [MRSeries updateAllSeriesWithJSON:JSON completion:^{
                 self.allSeries = [MRSeries findAllSortedBy:MRSeriesAttributes.name ascending:YES];
