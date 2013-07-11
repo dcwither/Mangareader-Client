@@ -47,6 +47,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         MRSeries *currentThreadSeries = (MRSeries *)[[NSManagedObjectContext contextForCurrentThread] objectWithID:series.objectID];
         
+        NSInteger index = 1;
         for (NSDictionary *dict in JSON) {
             NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
             NSString *title = [dict[@"name"] stringByTrimmingCharactersInSet:whitespaceCharacterSet];
@@ -67,6 +68,7 @@
             chapter.title = title;
             chapter.path = path;
             chapter.series = currentThreadSeries;
+            chapter.indexValue = index++;
             [currentThreadSeries.chaptersSet addObject:chapter];
         }
         

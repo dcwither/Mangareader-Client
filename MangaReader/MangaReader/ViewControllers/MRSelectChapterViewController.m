@@ -24,15 +24,22 @@
 
 - (id)initWithSeries:(MRSeries *)series
 {
+    
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        self.series = series;
         
+        NSComparator comparator = ^(id obj1, id obj2) {
+            MRChapter *chapter1 = (MRChapter *)obj1;
+            MRChapter *chapter2 = (MRChapter *)obj2;
+            return [chapter1.index compare:chapter2.index];
+        };
+        
+        self.series = series;
         NSURLRequest *request = [[MRHTTPClient sharedClient] requestWithMethod:@"GET" path:self.series.path parameters:nil];
         AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             
             [MRSeries updateChaptersForSeries:series JSON:JSON completion:^{
-                self.allChapters = [[self.series chapters] allObjects];
+                self.allChapters = [[[self.series chapters] allObjects] sortedArrayUsingComparator:comparator];
                 [self searchBar:self.searchBar textDidChange:self.searchBar.text];
             }];
             
@@ -42,7 +49,7 @@
         
         [operation start];
         
-        self.allChapters = [[self.series chapters] allObjects];
+        self.allChapters = [[[self.series chapters] allObjects] sortedArrayUsingComparator:comparator];
     }
     return self;
 }
