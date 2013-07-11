@@ -49,6 +49,7 @@
         
         [operation start];
         
+        self.predicatePrefix = @"title contains[cd] %@";
         self.allChapters = [[[self.series chapters] allObjects] sortedArrayUsingComparator:comparator];
     }
     return self;

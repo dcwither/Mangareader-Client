@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *filteredMembers;
+@property (nonatomic, strong) NSString *predicatePrefix;
 
 @end
 
@@ -77,10 +78,12 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    NSAssert(self.predicatePrefix != nil, @"No predicate has been defined for the search field");
+    
     if (searchText == nil || [searchText length] == 0) {
         self.filteredMembers = [self getAllMembers];
     } else {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name beginswith[cd] %@", searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:self.predicatePrefix, searchText];
         self.filteredMembers = [[self getAllMembers] filteredArrayUsingPredicate:predicate];
     }
     

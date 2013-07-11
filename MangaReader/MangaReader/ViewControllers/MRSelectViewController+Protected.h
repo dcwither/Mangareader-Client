@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) NSArray *filteredMembers;
+@property (nonatomic, strong) NSString *predicatePrefix;
 
 - (NSArray *)getAllMembers;
 
