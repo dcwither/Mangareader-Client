@@ -20,6 +20,7 @@
 		A942E7D0178CEB0500F1B235 /* MRHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A942E7CF178CEB0500F1B235 /* MRHTTPClient.m */; };
 		A94E8C42178DA633004A6214 /* MRSelectChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A94E8C41178DA633004A6214 /* MRSelectChapterViewController.m */; };
 		A94E8C45178DA708004A6214 /* MRSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A94E8C44178DA708004A6214 /* MRSelectViewController.m */; };
+		A9535129178F1DA700AB15D2 /* MRChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9535128178F1DA700AB15D2 /* MRChapterViewController.m */; };
 		A964F49F178CB01100B1C81A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F49E178CB01100B1C81A /* Foundation.framework */; };
 		A964F4A1178CB01100B1C81A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F4A0178CB01100B1C81A /* CoreGraphics.framework */; };
 		A964F4A3178CB01100B1C81A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F4A2178CB01100B1C81A /* UIKit.framework */; };
@@ -34,6 +35,7 @@
 		A964F4C0178CB01100B1C81A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A964F4A4178CB01100B1C81A /* CoreData.framework */; };
 		A964F4C8178CB01100B1C81A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A964F4C6178CB01100B1C81A /* InfoPlist.strings */; };
 		A964F4CA178CB01100B1C81A /* MangaReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A964F4C9178CB01100B1C81A /* MangaReaderTests.m */; };
+		A9B6AB6C178F1FFF006D9A02 /* MRPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B6AB6B178F1FFF006D9A02 /* MRPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		A94E8C43178DA708004A6214 /* MRSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSelectViewController.h; sourceTree = "<group>"; };
 		A94E8C44178DA708004A6214 /* MRSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSelectViewController.m; sourceTree = "<group>"; };
 		A94E8C46178DA740004A6214 /* MRSelectViewController+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MRSelectViewController+Protected.h"; sourceTree = "<group>"; };
+		A9535127178F1DA700AB15D2 /* MRChapterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRChapterViewController.h; sourceTree = "<group>"; };
+		A9535128178F1DA700AB15D2 /* MRChapterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRChapterViewController.m; sourceTree = "<group>"; };
 		A964F49B178CB01100B1C81A /* MangaReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangaReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A964F49E178CB01100B1C81A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A964F4A0178CB01100B1C81A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,6 +91,8 @@
 		A964F4C5178CB01100B1C81A /* MangaReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MangaReaderTests-Info.plist"; sourceTree = "<group>"; };
 		A964F4C7178CB01100B1C81A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A964F4C9178CB01100B1C81A /* MangaReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MangaReaderTests.m; sourceTree = "<group>"; };
+		A9B6AB6A178F1FFF006D9A02 /* MRPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRPageViewController.h; sourceTree = "<group>"; };
+		A9B6AB6B178F1FFF006D9A02 /* MRPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRPageViewController.m; sourceTree = "<group>"; };
 		E5F7BB6AD972402EB4745EC5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,6 +152,10 @@
 				A942E7CB178CE91500F1B235 /* MRSelectSeriesViewController.m */,
 				A94E8C40178DA633004A6214 /* MRSelectChapterViewController.h */,
 				A94E8C41178DA633004A6214 /* MRSelectChapterViewController.m */,
+				A9535127178F1DA700AB15D2 /* MRChapterViewController.h */,
+				A9535128178F1DA700AB15D2 /* MRChapterViewController.m */,
+				A9B6AB6A178F1FFF006D9A02 /* MRPageViewController.h */,
+				A9B6AB6B178F1FFF006D9A02 /* MRPageViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -405,6 +415,8 @@
 				A942E7D0178CEB0500F1B235 /* MRHTTPClient.m in Sources */,
 				A94E8C42178DA633004A6214 /* MRSelectChapterViewController.m in Sources */,
 				A94E8C45178DA708004A6214 /* MRSelectViewController.m in Sources */,
+				A9535129178F1DA700AB15D2 /* MRChapterViewController.m in Sources */,
+				A9B6AB6C178F1FFF006D9A02 /* MRPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +541,7 @@
 				INFOPLIST_FILE = "MangaReader/MangaReader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -541,11 +554,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MangaReader/MangaReader-Prefix.pch";
 				INFOPLIST_FILE = "MangaReader/MangaReader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

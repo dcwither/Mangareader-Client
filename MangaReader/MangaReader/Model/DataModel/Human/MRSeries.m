@@ -29,12 +29,7 @@
             series.path = path;
         }
         
-        NSError *error;
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
-        
-        if (error) {
-            TFLog(error.description);
-        }
         
         if (completion) {
             dispatch_sync(dispatch_get_main_queue(), completion);
@@ -72,12 +67,7 @@
             [currentThreadSeries.chaptersSet addObject:chapter];
         }
         
-        NSError *error;
         [[NSManagedObjectContext contextForCurrentThread] saveToPersistentStoreAndWait];
-        
-        if (error) {
-            TFLog(error.description);
-        }
         
         if (completion) {
             dispatch_sync(dispatch_get_main_queue(), completion);

@@ -42,7 +42,6 @@
         [operation start];
         self.predicatePrefix = @"name beginswith[cd] %@";
         self.allSeries = [MRSeries findAllSortedBy:MRSeriesAttributes.name ascending:YES];
-        self.filteredMembers = self.allSeries;
     }
     return self;
 }

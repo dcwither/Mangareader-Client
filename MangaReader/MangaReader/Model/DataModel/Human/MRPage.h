@@ -1,5 +1,7 @@
 #import "_MRPage.h"
 
 @interface MRPage : _MRPage {}
-// Custom logic goes here.
+
++ (void)downloadImageForPage:(MRPage *)page completion:(void (^)(UIImage *image))completion;
+
 @end

@@ -28,7 +28,7 @@
                                                                                 leftViewController:leftNav
                                                                                            options:nil];
     
-    frontViewController.revealController = revealController;
+    leftViewController.revealController = revealController;
     self.window.rootViewController = revealController;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

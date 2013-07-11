@@ -1,5 +1,7 @@
 #import "_MRChapter.h"
 
 @interface MRChapter : _MRChapter {}
-// Custom logic goes here.
+
++ (void)updatePagesForChapter:(MRChapter *)chapter WithJSON:(NSArray *)JSON completion:(void (^)( ))completion;
+
 @end

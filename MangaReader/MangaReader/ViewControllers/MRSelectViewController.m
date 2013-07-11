@@ -32,6 +32,8 @@
 - (void)loadView
 {
     [super loadView];
+    self.filteredMembers = [self getAllMembers];
+    
     CGRect frame = self.view.frame;
     frame.size.width = 280;
     self.view.frame = frame;

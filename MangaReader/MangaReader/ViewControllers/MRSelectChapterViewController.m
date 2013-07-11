@@ -8,6 +8,7 @@
 
 #import "MRSelectChapterViewController.h"
 #import "MRSelectViewController+Protected.h"
+#import "MRChapterViewController.h"
 #import "MRSeries.h"
 #import "MRChapter.h"
 #import "MRHTTPClient.h"
@@ -66,6 +67,14 @@
     
     return cell;
 }
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MRChapterViewController *chapterController = [[MRChapterViewController alloc] initWithChapter:self.filteredMembers[indexPath.row]];
+    [((UINavigationController *)self.revealController.frontViewController) pushViewController:chapterController animated:YES];}
 
 #pragma mark - ProtectedMembers
 
