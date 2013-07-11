@@ -1,6 +1,8 @@
 #import "MRChapter.h"
 #import "MRPage.h"
 
+static dispatch_queue_t allPagesQueue;
+
 @interface MRChapter ()
 
 // Private interface goes here.
@@ -12,7 +14,12 @@
 
 + (void)updatePagesForChapter:(MRChapter *)chapter WithJSON:(NSArray *)JSON completion:(void (^)( ))completion
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        allPagesQueue = dispatch_queue_create("All Chapters", DISPATCH_QUEUE_SERIAL);
+    });
+    
+    dispatch_async(allPagesQueue, ^{
         MRChapter *currentThreadChapter = (MRChapter *)[[NSManagedObjectContext contextForCurrentThread] objectWithID:chapter.objectID];
         
         for (NSDictionary *dict in JSON) {

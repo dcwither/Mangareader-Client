@@ -2,6 +2,9 @@
 #import "MRChapter.h"
 
 
+static dispatch_queue_t allSeriesQueue;
+static dispatch_queue_t allChapterQueue;
+
 @interface MRSeries ()
 
 // Private interface goes here.
@@ -15,7 +18,12 @@
 
 + (void)updateAllSeriesWithJSON:(NSArray *)JSON completion:(void (^)( ))completion
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        allSeriesQueue = dispatch_queue_create("All Chapters", DISPATCH_QUEUE_SERIAL);
+    });
+    
+    dispatch_async(allSeriesQueue, ^{
         for (NSDictionary *dict in JSON) {
             NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
             NSString *name = [dict[@"name"] stringByTrimmingCharactersInSet:whitespaceCharacterSet];
@@ -39,7 +47,12 @@
 
 + (void)updateChaptersForSeries:(MRSeries *)series JSON:(NSArray *)JSON completion:(void (^)( ))completion
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        allChapterQueue = dispatch_queue_create("All Chapters", DISPATCH_QUEUE_SERIAL);
+    });
+    
+    dispatch_async(allChapterQueue, ^{
         MRSeries *currentThreadSeries = (MRSeries *)[[NSManagedObjectContext contextForCurrentThread] objectWithID:series.objectID];
         
         NSInteger index = 1;
