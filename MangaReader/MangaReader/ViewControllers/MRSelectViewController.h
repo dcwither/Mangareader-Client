@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Devin Witherspoon. All rights reserved.
 //
 
+#import <PKRevealController/PKRevealController.h>
 #import <UIKit/UIKit.h>
 
 @interface MRSelectViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+
+@property (nonatomic, strong) PKRevealController *revealController;
 
 @end

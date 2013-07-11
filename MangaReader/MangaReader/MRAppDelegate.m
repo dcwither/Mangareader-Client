@@ -22,10 +22,14 @@
     UIViewController *frontViewController = [[UIViewController alloc] init];
     UIViewController *leftViewController = [[MRSelectSeriesViewController alloc] init];
     UINavigationController *leftNav = [[UINavigationController alloc] initWithRootViewController:leftViewController];
-    self.window.rootViewController = [[PKRevealController alloc] initWithFrontViewController:frontViewController
-                                                                          leftViewController:leftNav
-                                                                                     options:nil];
+    UINavigationController *frontNav = [[UINavigationController alloc] initWithRootViewController:frontViewController];
     
+    PKRevealController *revealController = [[PKRevealController alloc] initWithFrontViewController:frontNav
+                                                                                leftViewController:leftNav
+                                                                                           options:nil];
+    
+    frontViewController.revealController = revealController;
+    self.window.rootViewController = revealController;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

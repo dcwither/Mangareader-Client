@@ -65,7 +65,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    MRSelectChapterViewController *chapterViewController = [[MRSelectChapterViewController alloc] initWithSeries:self.filteredMembers[indexPath.row]];
+    MRSeries *selectedSeries = self.filteredMembers[indexPath.row];
+    MRSelectChapterViewController *chapterViewController = [[MRSelectChapterViewController alloc] initWithSeries:selectedSeries];
+    chapterViewController.revealController = self.revealController;
+    
     [self.navigationController pushViewController:chapterViewController animated:YES];
 }
 

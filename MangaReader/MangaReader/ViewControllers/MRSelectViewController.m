@@ -1,4 +1,4 @@
-//
+ //
 //  MRSelectViewController.m
 //  MangaReader
 //
@@ -33,22 +33,25 @@
 {
     [super loadView];
     CGRect frame = self.view.frame;
+    frame.size.width = 280;
+    self.view.frame = frame;
     frame.origin.y = 0;
     
     self.searchBar = [[UISearchBar alloc] initWithFrame:frame];
+    [[self.searchBar.subviews objectAtIndex:0] removeFromSuperview];
+    [self.view addSubview:self.searchBar];
     self.searchBar.delegate = self;
     [self.searchBar sizeToFit];
-    self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
     
     frame.origin.y = self.searchBar.frame.size.height;
     frame.size.height = self.view.frame.size.height - frame.origin.y;
     self.tableView = [[UITableView alloc] initWithFrame:frame];
+    [self.view addSubview:self.tableView];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
-    [self.view addSubview:self.searchBar];
-    [self.view addSubview:self.tableView];
 }
 
 
